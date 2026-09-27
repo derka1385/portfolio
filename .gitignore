@@ -1,0 +1,12 @@
+.DS_Store
+# design-tool working files: review captures, backups of earlier versions, caches
+.impeccable/review/
+.impeccable/v3-backup/
+.impeccable/v4-backup/
+.impeccable/v5-home-titles.js
+.impeccable/mocks/
+.impeccable/questions/
+.impeccable/hook.cache.json
+.impeccable/config.local.json
+.impeccable/brief-body.md
+.impeccable/surface-round.json

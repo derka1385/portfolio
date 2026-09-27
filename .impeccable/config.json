@@ -1,0 +1,215 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-09-26T23:16:23.730Z",
+        "reason": "Claude: kilometre-marker object, project dialog chrome and full-bleed video are flush by design"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-09-26T23:16:35.881Z",
+        "reason": "Claude: literal headlight and map-light glows; the direction contract makes light the subject"
+      },
+      {
+        "rule": "buried-raster",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-09-26T23:16:35.897Z",
+        "reason": "Claude: faint film-grain overlay and the car-display crossfade stack are intentional"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-09-26T23:16:35.912Z",
+        "reason": "Claude: only hit is the manifesto display line (2-4.6rem), validated by Nolann"
+      },
+      {
+        "rule": "overused-font",
+        "value": "space grotesk",
+        "createdAt": "2026-09-27T16:23:20.960Z",
+        "reason": "Claude: PRODUCT.md brand commitment, ORVECT keeps Space Grotesk for its own mark"
+      },
+      {
+        "rule": "overused-font",
+        "value": "font-family: 'space grotesk",
+        "createdAt": "2026-09-27T16:23:20.977Z",
+        "reason": "Claude: PRODUCT.md brand commitment, ORVECT keeps Space Grotesk for its own mark"
+      },
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "style.css"
+        ],
+        "createdAt": "2026-09-27T16:23:20.992Z",
+        "reason": "Claude: the only repeating gradient draws the tick marks of the edit timeline ruler (functional)"
+      },
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-09-27T16:23:21.007Z",
+        "reason": "Claude: timeline ruler tick marks from the shared stylesheet"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-09-27T16:23:21.021Z",
+        "reason": "Claude: body overflow-x clip only stops sideways scroll from the 3D strip; the positioned layers are fixed or inside their own frames"
+      },
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "code.html"
+        ],
+        "createdAt": "2026-09-27T16:23:21.035Z",
+        "reason": "Claude: timeline ruler tick marks from the shared stylesheet"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "code.html"
+        ],
+        "createdAt": "2026-09-27T16:23:21.048Z",
+        "reason": "Claude: body overflow-x clip only stops sideways scroll from the 3D strip; the positioned layers are fixed or inside their own frames"
+      },
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "photo.html"
+        ],
+        "createdAt": "2026-09-27T16:23:21.062Z",
+        "reason": "Claude: timeline ruler tick marks from the shared stylesheet"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "photo.html"
+        ],
+        "createdAt": "2026-09-27T16:23:21.075Z",
+        "reason": "Claude: body overflow-x clip only stops sideways scroll from the 3D strip; the positioned layers are fixed or inside their own frames"
+      },
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "film.html"
+        ],
+        "createdAt": "2026-09-27T16:23:21.089Z",
+        "reason": "Claude: timeline ruler tick marks from the shared stylesheet"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "film.html"
+        ],
+        "createdAt": "2026-09-27T16:23:21.103Z",
+        "reason": "Claude: body overflow-x clip only stops sideways scroll from the 3D strip; the positioned layers are fixed or inside their own frames"
+      },
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "design.html"
+        ],
+        "createdAt": "2026-09-27T16:23:21.117Z",
+        "reason": "Claude: timeline ruler tick marks from the shared stylesheet"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "design.html"
+        ],
+        "createdAt": "2026-09-27T16:23:21.131Z",
+        "reason": "Claude: body overflow-x clip only stops sideways scroll from the 3D strip; the positioned layers are fixed or inside their own frames"
+      },
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "contact.html"
+        ],
+        "createdAt": "2026-09-27T16:23:21.145Z",
+        "reason": "Claude: timeline ruler tick marks from the shared stylesheet"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "contact.html"
+        ],
+        "createdAt": "2026-09-27T16:23:21.159Z",
+        "reason": "Claude: body overflow-x clip only stops sideways scroll from the 3D strip; the positioned layers are fixed or inside their own frames"
+      },
+      {
+        "rule": "buried-raster",
+        "value": "*",
+        "files": [
+          "code.html"
+        ],
+        "createdAt": "2026-09-27T16:23:21.172Z",
+        "reason": "Claude: ORVECT monitor crossfade stack, one shot visible at a time"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "code.html"
+        ],
+        "createdAt": "2026-09-27T16:23:21.186Z",
+        "reason": "Claude: edit timeline tracks run flush to the panel edges as in an editor"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "design.html"
+        ],
+        "createdAt": "2026-09-27T16:23:21.200Z",
+        "reason": "Claude: storyboard sheet panels have a padded paper ground; detector misreads the shared custom property"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "photo.html"
+        ],
+        "createdAt": "2026-09-27T16:23:21.214Z",
+        "reason": "Claude: uppercase is the credit role label style (a 30-character label), not body copy"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "space grotesk",
+        "createdAt": "2026-09-27T16:47:11.872Z",
+        "reason": "Claude: PRODUCT.md brand commitment; ORVECT keeps Space Grotesk inside its own mark (DESIGN.md Guest Brand Rule)"
+      }
+    ]
+  }
+}

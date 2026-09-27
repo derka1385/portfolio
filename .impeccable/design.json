@@ -1,0 +1,503 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-27T23:18:51",
+  "title": "Design System: Nolann Petri — Le Générique",
+  "extensions": {
+    "colorMeta": {
+      "black": {
+        "role": "neutral",
+        "displayName": "Projection Black",
+        "canonical": "oklch(0.0% 0.000 0)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(15.0% 0.002 286)",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#252526",
+          "#424243",
+          "#616162",
+          "#828283",
+          "#a5a5a6",
+          "#c9c9ca",
+          "#eeeef0"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Ink, Monitor Bar",
+        "canonical": "oklch(19.7% 0.004 286)",
+        "tonalRamp": [
+          "#0b0b0d",
+          "#252527",
+          "#424244",
+          "#616163",
+          "#828285",
+          "#a5a5a7",
+          "#c9c9cc",
+          "#eeeef1"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Ink, Idle Clip",
+        "canonical": "oklch(24.1% 0.006 286)",
+        "tonalRamp": [
+          "#0b0b0d",
+          "#252528",
+          "#424245",
+          "#616164",
+          "#828286",
+          "#a4a4a8",
+          "#c9c9cd",
+          "#eeeef2"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Credit White",
+        "canonical": "oklch(94.6% 0.003 106)",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#252524",
+          "#424240",
+          "#616160",
+          "#828281",
+          "#a5a5a3",
+          "#c9c9c7",
+          "#eeeeec"
+        ]
+      },
+      "dim": {
+        "role": "neutral",
+        "displayName": "Dim",
+        "canonical": "oklch(69.1% 0.007 107)",
+        "tonalRamp": [
+          "#0b0b08",
+          "#252521",
+          "#42423e",
+          "#61615d",
+          "#83837e",
+          "#a5a5a0",
+          "#c9c9c4",
+          "#efefe9"
+        ]
+      },
+      "faint": {
+        "role": "neutral",
+        "displayName": "Faint",
+        "canonical": "oklch(58.1% 0.010 107)",
+        "tonalRamp": [
+          "#0b0b08",
+          "#252521",
+          "#42423d",
+          "#62625b",
+          "#83837c",
+          "#a5a59f",
+          "#c9c9c4",
+          "#efefea"
+        ]
+      },
+      "sub": {
+        "role": "primary",
+        "displayName": "Subtitle Yellow",
+        "canonical": "oklch(87.0% 0.154 96)",
+        "tonalRamp": [
+          "#120a00",
+          "#2f2400",
+          "#504100",
+          "#736000",
+          "#988119",
+          "#bea42e",
+          "#e7c844",
+          "#ffee76"
+        ]
+      },
+      "flare": {
+        "role": "secondary",
+        "displayName": "Anamorphic Blue (light only)",
+        "canonical": "oklch(78.6% 0.120 241)",
+        "tonalRamp": [
+          "#000c1e",
+          "#002841",
+          "#134666",
+          "#2b678f",
+          "#448ab9",
+          "#5daee5",
+          "#80d3ff",
+          "#aff8ff"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Storyboard Paper",
+        "canonical": "oklch(92.7% 0.003 128)",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#252524",
+          "#414241",
+          "#616160",
+          "#828381",
+          "#a4a5a3",
+          "#c8c9c7",
+          "#eeefed"
+        ]
+      },
+      "paper-ink": {
+        "role": "neutral",
+        "displayName": "Paper Ink",
+        "canonical": "oklch(18.3% 0.002 286)",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#252526",
+          "#424243",
+          "#616162",
+          "#828283",
+          "#a5a5a6",
+          "#c9c9ca",
+          "#eeeef0"
+        ]
+      },
+      "paper-dim": {
+        "role": "neutral",
+        "displayName": "Paper Dim",
+        "canonical": "oklch(45.7% 0.005 271)",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#242528",
+          "#414245",
+          "#606164",
+          "#818285",
+          "#a4a5a8",
+          "#c8c9cc",
+          "#edeef2"
+        ]
+      },
+      "orvect": {
+        "role": "tertiary",
+        "displayName": "ORVECT Signal Orange",
+        "canonical": "oklch(68.5% 0.208 37)",
+        "tonalRamp": [
+          "#2a0000",
+          "#530000",
+          "#7e0d00",
+          "#ad2c00",
+          "#dd4915",
+          "#ff6c3c",
+          "#ff9a70",
+          "#ffc7a1"
+        ]
+      },
+      "track-client": {
+        "role": "tertiary",
+        "displayName": "Client Track Teal",
+        "canonical": "oklch(71.2% 0.107 179)",
+        "tonalRamp": [
+          "#00120c",
+          "#002f26",
+          "#004f43",
+          "#0f7163",
+          "#2d9584",
+          "#4abba7",
+          "#7edecb",
+          "#affff0"
+        ]
+      },
+      "track-hack": {
+        "role": "tertiary",
+        "displayName": "Hackathon Track Violet",
+        "canonical": "oklch(71.0% 0.164 291)",
+        "tonalRamp": [
+          "#0e012a",
+          "#271750",
+          "#443379",
+          "#6350a5",
+          "#846fd4",
+          "#a690ff",
+          "#c9b7ff",
+          "#eedfff"
+        ]
+      },
+      "track-tools": {
+        "role": "tertiary",
+        "displayName": "Tools Track Steel",
+        "canonical": "oklch(69.3% 0.105 254)",
+        "tonalRamp": [
+          "#000a21",
+          "#0c2543",
+          "#244369",
+          "#3e6391",
+          "#5985bb",
+          "#78a8e4",
+          "#a0cdff",
+          "#caf2ff"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "rgb(255 255 255 / .13)"
+      },
+      "line-2": {
+        "role": "neutral",
+        "displayName": "Hairline Strong",
+        "canonical": "rgb(255 255 255 / .24)"
+      }
+    },
+    "typographyMeta": {
+      "display-name": {
+        "displayName": "Display name",
+        "purpose": "NOLANN PETRI in the opening frame and end roll only."
+      },
+      "headline": {
+        "displayName": "Title card",
+        "purpose": "Opens every reel."
+      },
+      "reel-title": {
+        "displayName": "Reel title",
+        "purpose": "Next-reel links and programme rows."
+      },
+      "intertitle": {
+        "displayName": "Intertitle",
+        "purpose": "The manifesto."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Project names in inspector and film list."
+      },
+      "subtitle": {
+        "displayName": "Subtitle",
+        "purpose": "Burned-in subtitle line, yellow."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Prose and leads."
+      },
+      "section-title": {
+        "displayName": "Section title",
+        "purpose": "Section headings after the titles; the heading itself."
+      },
+      "role": {
+        "displayName": "Role",
+        "purpose": "Credit roles and fact labels, condensed caps."
+      },
+      "control": {
+        "displayName": "Control",
+        "purpose": "Nav reels, buttons, Contact."
+      },
+      "timecode": {
+        "displayName": "Timecode",
+        "purpose": "Mono: timecode, coordinates, frame numbers, URLs, tech stacks only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "legibility-halo",
+        "value": "0 1px 18px rgb(0 0 0 / .55)",
+        "purpose": "text-shadow on credits and the name over footage."
+      },
+      {
+        "name": "subtitle-edge",
+        "value": "0 1px 2px rgb(0 0 0 / .9)",
+        "purpose": "text-shadow on the subtitle line."
+      },
+      {
+        "name": "frame-hairline",
+        "value": "0 0 0 1px var(--line)",
+        "purpose": "Ring on film posters; white when selected."
+      },
+      {
+        "name": "sheet-lift",
+        "value": "0 14px 24px -12px rgb(0 0 0 / .35)",
+        "purpose": "Storyboard panels on paper, hover only, with translateY(-4px)."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Default easing: hovers, fades, letters, roll."
+      },
+      {
+        "name": "ease-io",
+        "value": "cubic-bezier(.65, 0, .35, 1)",
+        "purpose": "Mechanical moves: letterbox opening (1.4s), masking (1s), page cut-out (.32s)."
+      },
+      {
+        "name": "page-cut",
+        "value": "out .32s blur(4px) fade, in .5s fade after .12s",
+        "purpose": "Cross-document view transition: a cut through black; chrome persists."
+      },
+      {
+        "name": "grain",
+        "value": "1s steps(6) infinite, opacity .055 overlay",
+        "purpose": "Film grain over every page; removed under reduced motion."
+      },
+      {
+        "name": "title-letters",
+        "value": "1.6s ease, 70ms stagger from blur(14px) scale(1.25)",
+        "purpose": "The name resolving after the anamorphic streak (1.5s)."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "1100px"
+      },
+      {
+        "name": "tablet",
+        "value": "860px"
+      },
+      {
+        "name": "phone",
+        "value": "600px"
+      },
+      {
+        "name": "portrait-frame",
+        "value": "max-aspect-ratio: 4/5"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Hairline Button",
+      "kind": "button",
+      "refersTo": "button",
+      "description": "Default slate plate for secondary actions; fills white on hover.",
+      "html": "<div style=\"background:#000;padding:24px\"><a class=\"ds-btn\" href=\"#\">Watch the demo</a></div>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:10px;min-height:42px;padding:0 16px;border:1px solid var(--line-2,rgb(255 255 255/.24));border-radius:2px;background:transparent;color:var(--white,#ededeb);font:500 11px/1 var(--f-sans,'Archivo',sans-serif);font-stretch:112%;text-transform:uppercase;letter-spacing:.16em;cursor:pointer;transition:background .3s cubic-bezier(.16,1,.3,1),color .3s cubic-bezier(.16,1,.3,1),border-color .3s cubic-bezier(.16,1,.3,1)}.ds-btn:hover{background:var(--white,#ededeb);color:#000;border-color:var(--white,#ededeb)}.ds-btn:focus-visible{outline:1px solid var(--sub,#f3d34a);outline-offset:4px}.ds-ico{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}"
+    },
+    {
+      "name": "Solid Button",
+      "kind": "button",
+      "refersTo": "button-solid",
+      "description": "Subtitle yellow; only the view's one outward action.",
+      "html": "<div style=\"background:#000;padding:24px\"><a class=\"ds-btn ds-btn-solid\" href=\"#\">Try it live<svg class=\"ds-ico\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M9 5h10v10M19 5 6 18\"/></svg></a></div>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:10px;min-height:42px;padding:0 16px;border:1px solid var(--line-2,rgb(255 255 255/.24));border-radius:2px;background:transparent;color:var(--white,#ededeb);font:500 11px/1 var(--f-sans,'Archivo',sans-serif);font-stretch:112%;text-transform:uppercase;letter-spacing:.16em;cursor:pointer;transition:background .3s cubic-bezier(.16,1,.3,1),color .3s cubic-bezier(.16,1,.3,1),border-color .3s cubic-bezier(.16,1,.3,1)}.ds-btn:hover{background:var(--white,#ededeb);color:#000;border-color:var(--white,#ededeb)}.ds-btn:focus-visible{outline:1px solid var(--sub,#f3d34a);outline-offset:4px}.ds-ico{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.ds-btn-solid{background:var(--sub,#f3d34a);color:#000;border-color:var(--sub,#f3d34a)}.ds-btn-solid:hover{background:var(--white,#ededeb);border-color:var(--white,#ededeb)}"
+    },
+    {
+      "name": "Letterbox Bar",
+      "kind": "nav",
+      "refersTo": "chrome-bar",
+      "description": "Fixed black top bar: name, four reels, subtitle track, yellow Contact.",
+      "html": "<header class=\"ds-chrome\"><span class=\"ds-mark\"><span>Nolann</span> <span>Petri</span></span><nav class=\"ds-reels\"><a href=\"#\" aria-current=\"page\">Code</a><a href=\"#\">Photo</a><a href=\"#\">Film</a><a href=\"#\">Design</a></nav><div class=\"ds-r\"><button class=\"ds-st\" type=\"button\"><span class=\"on\">EN</span><span>FR</span></button><a class=\"ds-contact\" href=\"#\">Contact</a></div></header>",
+      "css": ".ds-chrome{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;height:52px;padding:0 32px;background:#000;color:#ededeb;font-family:'Archivo',sans-serif}.ds-mark{font-size:11px;font-stretch:125%;text-transform:uppercase;letter-spacing:.3em;white-space:nowrap}.ds-mark span:last-child{color:#9c9c97}.ds-reels{display:flex;gap:32px}.ds-reels a,.ds-contact{position:relative;font-size:11px;font-weight:500;font-stretch:112%;text-transform:uppercase;letter-spacing:.2em;color:#9c9c97;text-decoration:none;padding:8px 0;transition:color .3s}.ds-reels a::after{content:'';position:absolute;left:0;right:.2em;bottom:2px;height:1px;background:#ededeb;transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.16,1,.3,1)}.ds-reels a:hover,.ds-reels a[aria-current]{color:#ededeb}.ds-reels a:hover::after,.ds-reels a[aria-current]::after{transform:scaleX(1)}.ds-r{justify-self:end;display:flex;align-items:center;gap:22px}.ds-contact{color:#f3d34a}.ds-contact:hover{color:#ededeb}.ds-st{display:inline-flex;gap:7px;height:28px;align-items:center;padding:0 9px;border:1px solid rgb(255 255 255/.13);border-radius:2px;background:none;font:11px 'Azeret Mono',monospace;color:#7b7b74;cursor:pointer}.ds-st .on{color:#ededeb}.ds-st:hover{border-color:rgb(255 255 255/.24)}a:focus-visible,button:focus-visible{outline:1px solid #f3d34a;outline-offset:4px}"
+    },
+    {
+      "name": "Credit List",
+      "kind": "custom",
+      "refersTo": "credit-list",
+      "description": "End-credit rows: role right-aligned in condensed caps against a 28px gutter, name left.",
+      "html": "<dl class=\"ds-credits\"><div><dt>Founder</dt><dd>ORVECT</dd></div><div><dt>Student · class of 2029</dt><dd>Stockholm School of Economics</dd></div><div><dt>Languages</dt><dd>FR · DE · EN</dd></div></dl>",
+      "css": ".ds-credits{display:grid;gap:14px;margin:0;padding:32px;background:#000;color:#ededeb;font:400 15px/1.6 'Archivo',sans-serif}.ds-credits div{display:grid;grid-template-columns:1fr 1.35fr;gap:28px;align-items:baseline}.ds-credits dt{text-align:right;font-size:11px;line-height:1.3;font-weight:500;font-stretch:78%;text-transform:uppercase;letter-spacing:.22em;color:#9c9c97}.ds-credits dd{margin:0}"
+    },
+    {
+      "name": "Title Card",
+      "kind": "custom",
+      "refersTo": "headline",
+      "description": "Opens every reel: expanded light caps, dim lead.",
+      "html": "<header class=\"ds-card\"><h1>Code</h1><p>A company I’m founding, client work, hackathons and the tools that started it all.</p></header>",
+      "css": ".ds-card{padding:64px 32px;background:#000;color:#ededeb;font-family:'Archivo',sans-serif}.ds-card h1{margin:0 -.38em 0 0;font-size:48px;line-height:1.1;font-weight:300;font-stretch:125%;text-transform:uppercase;letter-spacing:.38em}.ds-card p{margin:26px 0 0;max-width:58ch;color:#9c9c97;font-size:15.5px;line-height:1.6}"
+    },
+    {
+      "name": "Timeline Clip",
+      "kind": "custom",
+      "refersTo": "timeline-clip",
+      "description": "Desaturated clip with a 2px track-colour top edge; selected gets a white ring.",
+      "html": "<div class=\"ds-lane\"><button class=\"ds-clip\" style=\"--c:#ff5c28\">ORVECT</button><button class=\"ds-clip\" aria-pressed=\"true\" style=\"--c:#45b8a4\">Col de l’Est</button></div>",
+      "css": ".ds-lane{display:flex;gap:6px;padding:7px;height:62px;background:#0b0b0c}.ds-clip{position:relative;width:160px;border:0;border-radius:2px;background:#1f1f22;color:#ededeb;font:500 11px/1.2 'Archivo',sans-serif;text-align:left;padding:14px 8px 5px;display:flex;align-items:flex-end;cursor:pointer;box-shadow:inset 0 2px 0 var(--c),inset 0 0 0 1px rgb(255 255 255/.08);filter:saturate(.25) brightness(.55);transition:box-shadow .3s,filter .3s}.ds-clip:hover{filter:saturate(.7) brightness(.85)}.ds-clip[aria-pressed=true]{filter:none;box-shadow:inset 0 2px 0 var(--c),inset 0 0 0 1px #ededeb}.ds-clip:focus-visible{outline:1px solid #f3d34a;outline-offset:4px}"
+    },
+    {
+      "name": "Storyboard Sheet",
+      "kind": "card",
+      "refersTo": "storyboard-sheet",
+      "description": "Paper sheet with expanded-caps title, meta credits and framed panels with shot letters.",
+      "html": "<section class=\"ds-board\"><h2>Mountaineering Club</h2><dl><div><dt>Project</dt><dd>Identity</dd></div><div><dt>Year</dt><dd>2026</dd></div></dl><figure><div class=\"ds-panel\"></div><figcaption><span class=\"ds-shot\">A</span>Logo on snow</figcaption></figure></section>",
+      "css": ".ds-board{padding:32px;background:#e6e7e5;color:#121213;font-family:'Archivo',sans-serif}.ds-board h2{margin:0 0 18px;font-size:32px;line-height:1.1;font-weight:300;font-stretch:125%;text-transform:uppercase;letter-spacing:.14em}.ds-board dl{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 24px;padding-top:18px;border-top:1px solid #c5c6c4}.ds-board dt{font-size:11px;font-weight:500;font-stretch:78%;text-transform:uppercase;letter-spacing:.22em;color:#56575a;margin-bottom:4px}.ds-board dd{margin:0;font-size:13.5px}.ds-board figure{margin:0;display:grid;gap:10px;width:220px}.ds-panel{height:130px;border:1px solid #121213;background:#fff;padding:6px;transition:transform .6s cubic-bezier(.16,1,.3,1),box-shadow .6s cubic-bezier(.16,1,.3,1)}.ds-panel:hover{transform:translateY(-4px);box-shadow:0 14px 24px -12px rgb(0 0 0/.35)}.ds-board figcaption{display:flex;align-items:center;gap:10px;font-size:12px;color:#2c2d30}.ds-shot{display:inline-grid;place-items:center;min-width:20px;height:20px;border:1px solid #121213;font:11px 'Azeret Mono',monospace}"
+    },
+    {
+      "name": "Lignes (home)",
+      "kind": "experience",
+      "description": "A WebGL2 scene of instanced line segments expanded to screen-space quads (analytic anti-aliasing, a halo only where light touches). The grid is white at 13% (every unit) and 30% (every fifth); the traced name is a monoline, chamfered capital set on a 4 × 6 grid, PETRI yellow while it lies flat. One front of light in subtitle yellow is the only cause of change: it raises the letters into 4.4-unit walls and grows towers with storey lines as it passes, then a returning front folds everything flat. Its source is a white-hot point with a blue anamorphic streak. Motion is spring-driven (a little overshoot, then still) and tied to a critically damped scroll; the camera runs a cubic-Hermite curve through the plan, the rise, a slalom through the gaps between letters, an avenue, an orbit round the city and the return. The pointer lifts the grid like a finger under paper and lights the lines near it. Reduced motion shows the flat plan only.",
+      "html": "<section class=\"exp\"><div class=\"exp-stage\"><canvas id=\"lines\"></canvas><i class=\"exp-cue\"></i></div></section>"
+    }
+  ],
+  "narrative": {
+    "northStar": "Le Générique",
+    "overview": "**Creative North Star: \"Le Générique\"**\n\nThe portfolio is a film by Nolann Petri. Every inner page is a reel and every fact is a credit; the interface lives in the projection-black bar at the top. The page is black before it is anything else. The home is the one place without words: \"Lignes\", an exact grid of hairlines on which his name is traced like a plotter, then a front of light that raises the name into walls and grows a city of lines as you scroll, and folds it all flat on the way back. It exists to show what he can code in design, so it carries no text past the name, no links and no summary.\n\nDensity is low and deliberate: fewer things shown bigger, big black margins, hairline rules instead of boxes. The one exception is the Code reel, which is allowed the dense, gridded look of an editing suite (viewer, inspector, timeline with coloured clip tracks), and the Design reel, which swaps the black for pale storyboard paper. Light is treated as a physical thing: the anamorphic streak, the flare that follows the pointer, the projector beam in the screening room and the colour spill under the screen all come from a source in the scene, never from decorative glows.\n\nMotion is film grammar: cuts, fades to black, iris-like letterbox openings, masking that travels to the picture's format, a credit roll. Nothing slides up into place like a card.\n\n**Key Characteristics:**\n- Projection black ground with 2.39:1 frames and a fixed black top bar (52px, 48px under 860px).\n- Credit white text; one subtitle yellow reserved for subtitles, timecode and the single action per view.\n- Archivo variable: expanded (wdth 125) light capitals for titles, condensed (wdth 78) small capitals for roles.\n- Azeret Mono only for machine readouts: timecode, coordinates, frame numbers, URLs, tech stacks.\n- Hairlines and 2px corners; no cards, no shadows on the dark ground.\n- A live grain layer (5.5% overlay) over every page, removed under reduced motion.",
+    "keyCharacteristics": [
+      "Projection black ground with 2.39:1 frames and a fixed black top bar (52px, 48px under 860px).",
+      "Credit white text; one subtitle yellow reserved for subtitles, timecode and the single action per view.",
+      "Archivo variable: expanded (wdth 125) light capitals for titles, condensed (wdth 78) small capitals for roles.",
+      "Azeret Mono only for machine readouts: timecode, coordinates, frame numbers, URLs, tech stacks.",
+      "Hairlines and 2px corners; no cards, no shadows on the dark ground.",
+      "A live grain layer (5.5% overlay) over every page, removed under reduced motion."
+    ],
+    "rules": [
+      {
+        "name": "The Subtitle Rule",
+        "body": "Yellow is for what a projectionist would burn into the picture: subtitles, timecode and the one thing to do next. If an element is none of those, it is white or dim.",
+        "section": "colors"
+      },
+      {
+        "name": "The Light-Only Rule",
+        "body": "Anamorphic blue is emitted, never painted. Every glow has a source in the scene or at the pointer.",
+        "section": "colors"
+      },
+      {
+        "name": "The Guest Brand Rule",
+        "body": "ORVECT keeps Space Grotesk and its orange inside its own case study, logo and board; the host world does not borrow them.",
+        "section": "colors"
+      },
+      {
+        "name": "The Stretch Rule",
+        "body": "Titles are expanded caps, light, tracked .14–.52em with the trailing tracking compensated; roles are condensed caps at .16–.22em. Never set a title condensed or a role expanded.",
+        "section": "typography"
+      },
+      {
+        "name": "The Machine Voice Rule",
+        "body": "Azeret Mono is only for timecode, coordinates, frame numbers, URLs and tech stacks. Names, roles and prose are Archivo.",
+        "section": "typography"
+      },
+      {
+        "name": "The Credit Order Rule",
+        "body": "In a credit the name leads; its role follows on the same line or wraps below it, never above.",
+        "section": "typography"
+      },
+      {
+        "name": "The Source Rule",
+        "body": "Nothing on the black glows or casts a shadow unless a light in the scene (footage, projector, pointer) explains it.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** compose inside the 2.39:1 frame and its title-safe area; let black bars carry the interface.",
+      "**Do** keep yellow to subtitles, timecode and the one action per view; everything else is white, dim or faint.",
+      "**Do** set titles in Archivo expanded (wdth 125) light caps with wide tracking and roles in condensed (wdth 78) caps at 11px.",
+      "**Do** lead every credit with the name; the role follows or wraps below.",
+      "**Do** move between states with cuts, fades through black, masking and letterbox openings on the `ease` (cubic-bezier(.16, 1, .3, 1)) and `ease-io` (cubic-bezier(.65, 0, .35, 1)) curves.",
+      "**Do** give every glow a source: the front of light, the projector or the pointer.",
+      "**Do** let every reel still play under reduced motion, without the camera work and grain."
+    ],
+    "donts": [
+      "**Don't** use Azeret Mono for names, roles, labels or prose.",
+      "**Don't** paint with anamorphic blue: no blue text, borders or fills.",
+      "**Don't** use Space Grotesk or ORVECT orange outside ORVECT's own case study, logo, board and timeline track.",
+      "**Don't** box content in rounded cards or float it on drop shadows; use hairlines and black.",
+      "**Don't** animate entrances as slide-up cards.",
+      "**Don't** add an NP logo to the header; the bar carries the name in type.",
+      "Don't put words on the home past the traced name."
+    ]
+  }
+}

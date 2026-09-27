@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Code · Nolann Petri</title>
+<meta name="description" content="ORVECT, client sites, hackathons and study tools by Nolann Petri, each with a real screen recording and a live version to try.">
+<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="dark">
+<meta property="og:title" content="Code · Nolann Petri">
+<meta property="og:image" content="img/og.jpg">
+<link rel="icon" href="img/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Azeret+Mono:wght@300..600&family=Space+Grotesk:wght@500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<script type="module" src="site.js"></script>
+<script type="module" src="code.js"></script>
+
+<body class="p-code">
+<a class="skip" href="#main" data-fr="Aller au contenu">Skip to content</a>
+
+<header class="chrome">
+  <a class="mark" href="index.html"><span>Nolann</span> <span>Petri</span></a>
+  <nav class="reels" aria-label="Reels">
+    <a href="code.html" aria-current="page">Code</a>
+    <a href="photo.html">Photo</a>
+    <a href="film.html">Film</a>
+    <a href="design.html">Design</a>
+  </nav>
+  <div class="chrome-r">
+    <button class="st" id="st" type="button" aria-label="Subtitles: switch to French" data-label-fr="Sous-titres : passer en anglais"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5"/><path d="M6.5 13.5h5M13.5 13.5h4M6.5 16h8"/></svg><span class="st-en">EN</span><span class="st-fr">FR</span></button>
+    <a class="to-contact" href="contact.html">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+  <header class="card wrap">
+    <h1 class="card-h1">Code</h1>
+    <p class="card-lead" data-fr="Une entreprise que je fonde, du travail client, des hackathons et les outils par lesquels tout a commencé. Chaque clip est un vrai enregistrement du projet en ligne ; ouvrez-le pour le tester.">A company I’m founding, client work, hackathons and the tools that started it all. Every clip is a real recording of the live project; open one to try it.</p>
+  </header>
+
+  <!-- ORVECT, told in four shots on its own monitor -->
+  <section class="ov wrap" id="orvect" aria-labelledby="orvect-title">
+    <div class="ov-copy">
+      <h2 id="orvect-title" class="orvect-logo" aria-label="ORVECT"><svg viewBox="0 0 120 100" aria-hidden="true"><path d="M8 76 29 24h19L27 76Z M41 76 70 4h19L60 76Z M74 76 95 24h19L93 76Z"/></svg><span aria-hidden="true">ORVECT</span></h2>
+      <p class="ov-tag" data-fr="Un copilote IA qui aide les garages indépendants à aller au-delà du code défaut.">An AI copilot that helps independent garages go beyond the fault code.</p>
+      <dl class="credit-list tight">
+        <div><dt data-fr="Rôle">Role</dt><dd data-fr="Fondateur · produit, full stack, marque">Founder · product, full stack, brand</dd></div>
+        <div><dt>Stack</dt><dd>FastAPI · Nebius · Tavily · Gemini · Firebase</dd></div>
+        <div><dt data-fr="Statut">Status</dt><dd data-fr="Prototype · pre-seed Ignyte">Prototype · Ignyte pre-seed</dd></div>
+        <div><dt data-fr="Depuis">Since</dt><dd data-fr="2025 · Stockholm / Dubaï">2025 · Stockholm / Dubai</dd></div>
+      </dl>
+      <ol class="ov-steps">
+        <li class="ov-step" data-step="0">
+          <h3 data-fr="Une seule donnée pour commencer.">One data point to start.</h3>
+          <p data-fr="Le technicien saisit un VIN, une plaque ou le véhicule à la main ; ORVECT détecte la configuration et la fait confirmer par un humain. Viennent ensuite les symptômes et les codes défaut, puis des hypothèses classées, chacune avec sa source.">A technician enters a VIN, a plate or the car by hand; ORVECT detects the configuration and has a human confirm it. Then come symptoms and fault codes, and ranked hypotheses, each with its source.</p>
+        </li>
+        <li class="ov-step" data-step="1">
+          <h3 data-fr="Les sources d’abord, le modèle ensuite.">Sources first, model second.</h3>
+          <p data-fr="Un pipeline FastAPI lance une recherche web avec Tavily, puis raisonne sur Nebius (gpt-oss-120b). Des contrôles côté serveur rejettent les citations invalides et les classements dégénérés. Je l’ai reconstruit en une journée au hackathon Nebius × Tavily.">A FastAPI pipeline runs web research with Tavily, then reasons on Nebius (gpt-oss-120b). Server-side checks drop invalid citations and reject degenerate rankings. I rebuilt it in one day at the Nebius × Tavily hackathon.</p>
+        </li>
+        <li class="ov-step" data-step="2">
+          <h3 data-fr="Trois traits, un orange signal.">Three strokes, one signal orange.</h3>
+          <p data-fr="Un signe directionnel, Space Grotesk, graphite et blanc minéral. Décliné en charte, print et campagnes LinkedIn.">A directional mark, Space Grotesk, graphite and mineral white. Rolled out as a brand guide, print and LinkedIn campaigns.</p>
+        </li>
+        <li class="ov-step" data-step="3">
+          <h3 data-fr="Un pitch qui se fait défiler.">A pitch you can scroll.</h3>
+          <p data-fr="Une landing page avec un scan de véhicule piloté par le scroll, et un deck investisseurs de 16 slides publié en site statique.">A landing page with a scroll-driven vehicle scan, and a 16-slide investor deck published as a static site.</p>
+        </li>
+      </ol>
+      <p class="actions">
+        <a class="btn solid" href="https://derka1385.github.io/orvect-landing/" target="_blank" rel="noopener"><span data-fr="Voir la landing">See the landing</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5h10v10M19 5 6 18"/></svg></a>
+        <a class="btn" href="https://derka1385.github.io/orvect-investor-deck/" target="_blank" rel="noopener"><span data-fr="Deck investisseurs">Investor deck</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5h10v10M19 5 6 18"/></svg></a>
+      </p>
+    </div>
+    <div class="ov-monitor" aria-hidden="true">
+      <div class="monitor">
+        <p class="monitor-bar"><span id="ov-url">derka1385.github.io/ORVECT_Program</span><span id="ov-n">1 / 4</span></p>
+        <div class="monitor-stack">
+          <video class="on" muted loop playsinline preload="none" poster="img/v-orvect-program.webp" data-src="vid/orvect-program.mp4" data-url="derka1385.github.io/ORVECT_Program"></video>
+          <video muted loop playsinline preload="none" poster="img/v-orvect-program.webp" data-src="vid/orvect-program.mp4" data-url="Nebius × Tavily · FastAPI pipeline"></video>
+          <img src="img/d-orvect-wallpaper.webp" alt="" loading="lazy" width="1600" height="1039" data-url="ORVECT · brand">
+          <video muted loop playsinline preload="none" poster="img/v-orvect-deck.webp" data-src="vid/orvect-deck.mp4" data-url="derka1385.github.io/orvect-investor-deck"></video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Every project as a clip on an edit timeline -->
+  <section class="suite" id="suite" aria-labelledby="suite-title">
+    <div class="wrap suite-head">
+      <h2 class="card-title" id="suite-title" data-fr="Banc de montage">The edit</h2>
+      <p class="suite-help" data-fr="Glissez la tête de lecture ou choisissez un clip. Les flèches ← → passent d’un clip à l’autre.">Drag the playhead or pick a clip. Use ← → to jump between clips.</p>
+    </div>
+
+    <div class="nle wrap" id="nle" hidden>
+      <div class="viewer">
+        <p class="viewer-bar"><span class="viewer-url" id="v-url"></span><span class="tc" id="v-tc">00:00:00:00</span></p>
+        <div class="viewer-screen">
+          <video id="v-video" muted playsinline loop preload="none"></video>
+          <iframe id="v-frame" title="Live project" hidden sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-modals" allow="fullscreen"></iframe>
+          <p class="viewer-loading" data-fr="Chargement du site…">Loading the live site…</p>
+        </div>
+      </div>
+      <aside class="inspector" id="inspector" aria-live="polite"></aside>
+      <div class="timeline" id="timeline">
+        <div class="tl-ruler" aria-hidden="true"><span>2025</span><span>2026</span></div>
+        <div class="tl-tracks" id="tracks"></div>
+        <div class="playhead" id="playhead" role="slider" tabindex="0" aria-label="Playhead" data-label-fr="Tête de lecture" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
+      </div>
+    </div>
+
+    <div class="projects wrap" id="projects">
+
+      <article class="proj" id="p-orvect-app" data-track="company" data-year="2026" data-url="https://derka1385.github.io/ORVECT_Program/" data-video="vid/orvect-program.mp4" data-poster="img/v-orvect-program.webp">
+        <h3>ORVECT · <span data-fr="Prototype">Prototype</span></h3>
+        <p class="meta" data-fr="Fondateur · 2025 → aujourd’hui">Founder · 2025 → now</p>
+        <dl class="facts">
+          <div><dt data-fr="Contexte">Context</dt><dd data-fr="Les garages indépendants perdent du temps entre le code défaut et la vraie cause.">Independent garages lose time between the fault code and the real cause.</dd></div>
+          <div><dt data-fr="Ce que j’ai fait">What I built</dt><dd data-fr="Tout : backend FastAPI, pipeline IA sur Nebius avec recherche Tavily, contrôles des citations côté serveur, authentification Firebase, front statique en quatre langues.">All of it: a FastAPI backend, an AI pipeline on Nebius with Tavily research, server-side citation checks, Firebase auth and a static front end in four languages.</dd></div>
+          <div><dt data-fr="But">Goal</dt><dd data-fr="Donner au technicien le prochain contrôle utile, avec ses sources.">Give the technician the next useful check, with its sources.</dd></div>
+        </dl>
+        <p class="stack">FastAPI · Nebius · Tavily · Gemini · Firebase</p>
+      </article>
+
+      <article class="proj" id="p-orvect-landing" data-track="company" data-year="2026" data-url="https://derka1385.github.io/orvect-landing/" data-video="vid/orvect-landing.mp4" data-poster="img/v-orvect-landing.webp">
+        <h3>ORVECT · Landing</h3>
+        <p class="meta" data-fr="Fondateur · 2026">Founder · 2026</p>
+        <dl class="facts">
+          <div><dt data-fr="Contexte">Context</dt><dd data-fr="Présenter ORVECT aux garages et aux programmes d’accélération.">Introducing ORVECT to garages and accelerator programmes.</dd></div>
+          <div><dt data-fr="Ce que j’ai fait">What I built</dt><dd data-fr="Une landing page dont le scan de véhicule avance avec le scroll, en quatre langues : FR, EN, SV, DE.">A landing page whose vehicle scan advances with the scroll, in four languages: FR, EN, SV, DE.</dd></div>
+          <div><dt data-fr="But">Goal</dt><dd data-fr="Faire comprendre le produit en un défilement.">Make the product clear in one scroll.</dd></div>
+        </dl>
+        <p class="stack">HTML · CSS · JavaScript</p>
+      </article>
+
+      <article class="proj" id="p-orvect-deck" data-track="company" data-year="2026" data-url="https://derka1385.github.io/orvect-investor-deck/" data-video="vid/orvect-deck.mp4" data-poster="img/v-orvect-deck.webp">
+        <h3 data-fr="ORVECT · Deck investisseurs">ORVECT · Investor deck</h3>
+        <p class="meta" data-fr="Fondateur · 2026">Founder · 2026</p>
+        <dl class="facts">
+          <div><dt data-fr="Contexte">Context</dt><dd data-fr="Lever du pre-seed avec un deck qu’on peut ouvrir sur n’importe quel écran.">Raising pre-seed with a deck that opens on any screen.</dd></div>
+          <div><dt data-fr="Ce que j’ai fait">What I built</dt><dd data-fr="16 slides publiées en site statique, dans la charte ORVECT.">16 slides published as a static site, in the ORVECT brand.</dd></div>
+          <div><dt data-fr="But">Goal</dt><dd data-fr="Raconter le marché, le produit et la suite en quelques minutes.">Tell the market, the product and what comes next in a few minutes.</dd></div>
+        </dl>
+        <p class="stack">HTML · CSS · JavaScript</p>
+      </article>
+
+      <article class="proj" id="p-racetrack" data-track="client" data-year="2026" data-url="https://derka1385.github.io/Lamera_Racetrack/" data-video="vid/racetrack.mp4" data-poster="img/v-racetrack.webp">
+        <h3>RaceTrack Competition</h3>
+        <p class="meta" data-fr="Client · Luxembourg · 2026">Client · Luxembourg · 2026</p>
+        <dl class="facts">
+          <div><dt data-fr="Contexte">Context</dt><dd data-fr="Une équipe de sport automobile qui propose des essais privés en Lamera, des week-ends de course clés en main et de la formation de pilotes.">A motorsport team offering private Lamera testing, arrive-and-drive race weekends and driver development.</dd></div>
+          <div><dt data-fr="Ce que j’ai fait">What I built</dt><dd data-fr="Un site Next.js en trois langues (EN, FR, DE) avec Framer Motion, un formulaire de demande validé par Zod et React Hook Form, des tests responsive avec Playwright et un export statique pour GitHub Pages.">A trilingual Next.js site (EN, FR, DE) with Framer Motion, a request form validated with Zod and React Hook Form, responsive checks with Playwright and a static export for GitHub Pages.</dd></div>
+          <div><dt data-fr="But">Goal</dt><dd data-fr="Transformer les visiteurs en demandes d’essai et d’engagement en course.">Turn visitors into test-day and race-weekend requests.</dd></div>
+        </dl>
+        <p class="stack">Next.js · TypeScript · Tailwind · Framer Motion · Zod</p>
+      </article>
+
+      <article class="proj" id="p-coldelest" data-track="client" data-year="2025" data-url="https://derka1385.github.io/ColdeLEST/" data-video="vid/coldelest.mp4" data-poster="img/v-coldelest.webp">
+        <h3>Col de l’Est</h3>
+        <p class="meta" data-fr="Association · 2025">Association · 2025</p>
+        <dl class="facts">
+          <div><dt data-fr="Contexte">Context</dt><dd data-fr="Des propriétaires de voitures de sport de France, d’Allemagne, du Luxembourg et de Suisse, sur les routes d’Alsace et des Vosges.">Sports-car owners from France, Germany, Luxembourg and Switzerland, on the roads of Alsace and the Vosges.</dd></div>
+          <div><dt data-fr="Ce que j’ai fait">What I built</dt><dd data-fr="Page d’accueil, prochain rallye, galerie et formulaire d’inscription.">Landing page, next rally, gallery and a sign-up form.</dd></div>
+          <div><dt data-fr="But">Goal</dt><dd data-fr="Réunir les gens autour d’une balade.">Bring people together around one drive.</dd></div>
+        </dl>
+        <p class="stack">HTML · CSS · PHP</p>
+      </article>
+
+      <article class="proj" id="p-nebius" data-track="hack" data-year="2026" data-url="https://derka1385.github.io/ORVECT_Program/" data-video="vid/orvect-program.mp4" data-poster="img/v-orvect-program.webp">
+        <h3>Nebius × Tavily</h3>
+        <p class="meta" data-fr="Hackathon · un jour · 2026">Hackathon · one day · 2026</p>
+        <dl class="facts">
+          <div><dt data-fr="Contexte">Context</dt><dd data-fr="Une journée de hackathon, quelques semaines après mon arrivée à Stockholm.">A one-day hackathon, a few weeks after I arrived in Stockholm.</dd></div>
+          <div><dt data-fr="Ce que j’ai fait">What I built</dt><dd data-fr="J’ai reconstruit le pipeline d’ORVECT : recherche web avec Tavily, raisonnement sur Nebius (gpt-oss-120b), puis des contrôles côté serveur qui rejettent les citations invalides et les classements dégénérés.">I rebuilt ORVECT’s pipeline: web research with Tavily, reasoning on Nebius (gpt-oss-120b), then server-side checks that drop invalid citations and reject degenerate rankings.</dd></div>
+          <div><dt data-fr="But">Goal</dt><dd data-fr="Des hypothèses de diagnostic dont chaque source tient.">Diagnostic hypotheses where every source holds up.</dd></div>
+        </dl>
+        <p class="stack">FastAPI · Nebius · Tavily</p>
+      </article>
+
+      <article class="proj" id="p-survive" data-track="hack" data-year="2026" data-url="https://derka1385.github.io/survive-exe/" data-video="vid/survive.mp4" data-poster="img/v-survive.webp">
+        <h3>SURVIVE.EXE</h3>
+        <p class="meta" data-fr="Hackathon · en solo · 2026">Hackathon · solo · 2026</p>
+        <dl class="facts">
+          <div><dt data-fr="Contexte">Context</dt><dd data-fr="Un roguelite de bureau dans une coque Windows XP, construit seul pendant un hackathon.">A workplace roguelite in a Windows XP shell, built alone during a hackathon.</dd></div>
+          <div><dt data-fr="Ce que j’ai fait">What I built</dt><dd data-fr="Un moteur de jeu sans dépendance en modules ES : événements programmés selon la difficulté, journal, bilan de fin de journée et harnais de tests, avec l’interface XP séparée du moteur.">A dependency-free game engine in ES modules: difficulty-based event scheduling, an event log, end-of-day results and a check harness, with the XP interface kept separate from the engine.</dd></div>
+          <div><dt data-fr="But">Goal</dt><dd data-fr="Tenir de 09:00 à 17:00 pendant que productivité, stress et réputation bougent à chaque événement.">Survive from 09:00 to 17:00 while productivity, stress and reputation move with every event.</dd></div>
+        </dl>
+        <p class="stack">JavaScript · ES modules · <span data-fr="sans dépendance">no dependencies</span></p>
+      </article>
+
+      <article class="proj" id="p-ses" data-track="tools" data-year="2025" data-url="https://derka1385.github.io/BAC-SES/" data-video="vid/ses.mp4" data-poster="img/v-ses.webp">
+        <h3 data-fr="SES · révision par objectifs">SES · revision by objective</h3>
+        <p class="meta" data-fr="Lycée · 2025 → 2026">School · 2025 → 2026</p>
+        <dl class="facts">
+          <div><dt data-fr="Contexte">Context</dt><dd data-fr="Les SES pour le bac. Mes camarades l’ont utilisé, puis des professeurs avec leurs classes.">Economics and social sciences for the French bac. Classmates used it, then teachers with their classes.</dd></div>
+          <div><dt data-fr="Ce que j’ai fait">What I built</dt><dd data-fr="40 objectifs officiels sur 9 chapitres, le cours complet pour chacun, 144 flashcards avec un mode adaptatif, du surlignage, un mode édition, des comptes synchronisés et un mode professeur pour publier les chapitres.">40 official objectives across 9 chapters, the full course for each, 144 flashcards with an adaptive mode, highlighting, an edit mode, synced accounts and a teacher mode to publish chapters.</dd></div>
+          <div><dt data-fr="But">Goal</dt><dd data-fr="Savoir quels objectifs on maîtrise vraiment avant l’épreuve.">Know which objectives you actually master before the exam.</dd></div>
+        </dl>
+        <p class="stack">Vanilla JS · Firebase · Supabase</p>
+      </article>
+
+      <article class="proj" id="p-eft" data-track="tools" data-year="2026" data-url="https://derka1385.github.io/EFT-EQUITY-FORECAST-TERMINAL-/" data-video="vid/eft.mp4" data-poster="img/v-eft.webp">
+        <h3>EFT · Equity Forecast Terminal</h3>
+        <p class="meta" data-fr="Finance · projet perso · 2026">Finance · side project · 2026</p>
+        <dl class="facts">
+          <div><dt data-fr="Contexte">Context</dt><dd data-fr="Commencé à 17 ans pour comprendre comment les modèles de prévision se comportent sur de vrais cours.">Started at 17 to understand how forecasting models behave on real prices.</dd></div>
+          <div><dt data-fr="Ce que j’ai fait">What I built</dt><dd data-fr="Mouvement brownien géométrique avec calibration bayésienne et terme AR(1), trajectoires Monte Carlo, indice de confiance et score de risque, alimentés par un flux de marché en direct avec cache local.">Geometric Brownian motion with Bayesian calibration and an AR(1) term, Monte Carlo paths, a confidence index and a risk score, fed by a live market feed with a local cache.</dd></div>
+          <div><dt data-fr="But">Goal</dt><dd data-fr="Rendre l’incertitude visible. C’est un outil d’apprentissage, pas un conseil en investissement.">Make uncertainty visible. It is a learning tool, not investment advice.</dd></div>
+        </dl>
+        <p class="stack">JavaScript · Canvas · Monte Carlo</p>
+      </article>
+
+      <article class="proj" id="p-philo" data-track="tools" data-year="2026" data-url="https://derka1385.github.io/Constellation_philo_Bac/" data-video="vid/philo.mp4" data-poster="img/v-philo.webp">
+        <h3>Galaxie philosophique</h3>
+        <p class="meta" data-fr="Lycée · 2026">School · 2026</p>
+        <dl class="facts">
+          <div><dt data-fr="Contexte">Context</dt><dd data-fr="Révisions de philosophie pour le bac : les 17 notions.">Philosophy revision for the bac: the 17 notions.</dd></div>
+          <div><dt data-fr="Ce que j’ai fait">What I built</dt><dd data-fr="Une constellation en canvas : planètes dimensionnées par leur nombre de liens, liens pondérés du plus fort au plus faible, recherche, rotation et mode flashcards.">A canvas constellation: planets sized by their number of connections, links weighted from strong to weak, search, rotation and a flashcards mode.</dd></div>
+          <div><dt data-fr="But">Goal</dt><dd data-fr="Voir comment les notions se relient, pour qu’une dissertation passe de l’une à l’autre.">See how notions connect, so an essay can move from one to the next.</dd></div>
+        </dl>
+        <p class="stack">JavaScript · Canvas</p>
+      </article>
+
+      <article class="proj" id="p-ielts" data-track="tools" data-year="2026" data-url="https://derka1385.github.io/IELTS/" data-video="vid/ielts.mp4" data-poster="img/v-ielts.webp">
+        <h3>IELTS Studio</h3>
+        <p class="meta" data-fr="Examen · 2026 · résultat 7.5">Exam prep · 2026 · scored 7.5</p>
+        <dl class="facts">
+          <div><dt data-fr="Contexte">Context</dt><dd data-fr="72 heures avant l’IELTS.">72 hours before the IELTS.</dd></div>
+          <div><dt data-fr="Ce que j’ai fait">What I built</dt><dd data-fr="Un onglet par compétence, des trames pour le Writing Task 1 et 2, un entraînement à l’oral qui suit ce qu’on maîtrise, 11 leçons de grammaire avec exercices et des flashcards, le tout sauvegardé en local.">Tabs per skill, Writing Task 1 and 2 frameworks, a speaking drill that tracks what you master, 11 grammar lessons with exercises and flashcards, all saved locally.</dd></div>
+          <div><dt data-fr="But">Goal</dt><dd data-fr="Atteindre la bande 7. J’ai obtenu 7.5.">Reach band 7 overall. I scored 7.5.</dd></div>
+        </dl>
+        <p class="stack">Vanilla JS · localStorage</p>
+      </article>
+
+      <article class="proj" id="p-grammar" data-track="tools" data-year="2026" data-url="https://derka1385.github.io/IELTS_positionning/" data-video="vid/grammar.mp4" data-poster="img/v-grammar.webp">
+        <h3>Grammar Atlas</h3>
+        <p class="meta" data-fr="Examen · 2026">Exam prep · 2026</p>
+        <dl class="facts">
+          <div><dt data-fr="Contexte">Context</dt><dd data-fr="Je perdais des points à l’IELTS sur les mêmes erreurs de grammaire.">I kept losing IELTS points on the same grammar.</dd></div>
+          <div><dt data-fr="Ce que j’ai fait">What I built</dt><dd data-fr="Un diagnostic de 25 phrases au clavier, les erreurs classées par type, et un plan de 24 h construit sur les points les plus faibles.">A 25-sentence diagnostic answered from the keyboard, errors grouped by type, and a 24-hour plan built from the weakest patterns.</dd></div>
+          <div><dt data-fr="But">Goal</dt><dd data-fr="Réviser ce qui coûte des points, pas tout.">Revise what costs you points, not everything.</dd></div>
+        </dl>
+        <p class="stack">JavaScript · Node</p>
+      </article>
+
+      <article class="proj" id="p-maths" data-track="tools" data-year="2026" data-url="https://derka1385.github.io/maths_shuffle/" data-video="vid/maths.mp4" data-poster="img/v-maths.webp">
+        <h3>Maths Bac</h3>
+        <p class="meta" data-fr="Lycée · 2026">School · 2026</p>
+        <dl class="facts">
+          <div><dt data-fr="Contexte">Context</dt><dd data-fr="Révisions de maths pour le bac.">Maths revision for the bac.</dd></div>
+          <div><dt data-fr="Ce que j’ai fait">What I built</dt><dd data-fr="Un parseur Python qui a extrait 311 exercices des sujets 2021–2025, les a triés par notion et a compilé leurs figures LaTeX dans GitHub Actions.">A Python parser that extracted 311 exercises from the 2021–2025 papers, sorted them by topic and compiled their LaTeX figures in GitHub Actions.</dd></div>
+          <div><dt data-fr="But">Goal</dt><dd data-fr="S’entraîner sur la notion la plus faible avec de vrais sujets.">Train on your weakest topic with real exam questions.</dd></div>
+        </dl>
+        <p class="stack">Python · LaTeX · GitHub Actions</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="end wrap">
+  <p class="end-next"><span class="role" data-fr="Bobine suivante">Next reel</span><a href="photo.html">Photo</a></p>
+  <dl class="end-credits">
+    <div><dt>Email</dt><dd><a href="mailto:nolann.petri@gmail.com">nolann.petri@gmail.com</a></dd></div>
+    <div><dt>ORVECT</dt><dd><a href="mailto:nolann.orvect@gmail.com">nolann.orvect@gmail.com</a></dd></div>
+    <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/_.derka_/" rel="me noopener" target="_blank">@_.derka_</a></dd></div>
+    <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/petri-n-234321354" rel="me noopener" target="_blank">Nolann Petri</a></dd></div>
+    <div><dt>GitHub</dt><dd><a href="https://github.com/derka1385" rel="me noopener" target="_blank">derka1385</a></dd></div>
+    <div><dt>Col de l’Est</dt><dd><a href="https://www.instagram.com/coldelest/" rel="noopener" target="_blank">@coldelest</a></dd></div>
+  </dl>
+  <p class="end-line"><span>© 2026 Nolann Petri</span><span data-fr="Conçu et développé à Stockholm">Designed and built in Stockholm</span></p>
+</footer>
+</body>
+</html>
