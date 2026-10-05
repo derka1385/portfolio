@@ -56,8 +56,8 @@ const inview = new IntersectionObserver(es => es.forEach(e => {
 }), { rootMargin: '120px 0px' });
 $$('.cde video, .cde-vert video').forEach(v => inview.observe(v));
 
-// The programme rows play their preview under the pointer (or in view on touch screens)
-$$('.prog-row').forEach(row => {
+// Small monitors play their preview under the pointer (or in view on touch screens)
+$$('.more-item').forEach(row => {
   const v = $('video', row);
   if (!v) return;
   if (fine) {

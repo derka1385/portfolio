@@ -4,8 +4,6 @@ description: A portfolio played as a film in four reels, opened by a textless sc
 colors:
   black: "#000"
   ink: "#0b0b0c"
-  ink-2: "#151517"
-  ink-3: "#1f1f22"
   line: "rgb(255 255 255 / .13)"
   line-2: "rgb(255 255 255 / .24)"
   white: "#ededeb"
@@ -50,7 +48,7 @@ typography:
     fontVariation: "'wdth' 108"
   title:
     fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(20px, 1.7vw, 26px)"
+    fontSize: "clamp(22px, 2vw, 30px)"
     fontWeight: 400
     lineHeight: 1.15
     fontVariation: "'wdth' 112"
@@ -137,10 +135,24 @@ components:
     typography: "{typography.control}"
     padding: "0 {spacing.gutter}"
     height: "{spacing.bar}"
-  timeline-clip:
-    backgroundColor: "{colors.ink-3}"
+  chapter-slate:
+    backgroundColor: "transparent"
     textColor: "{colors.white}"
-    rounded: "{rounded.hairline}"
+    padding: "30px 0 0"
+  monitor-bar:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.dim}"
+    typography: "{typography.timecode}"
+    rounded: "{rounded.none}"
+    padding: "9px 12px"
+  monitor-bar-on-air:
+    textColor: "{colors.sub}"
+  monitor-screen:
+    backgroundColor: "{colors.ink}"
+    rounded: "{rounded.none}"
+  track-swatch:
+    rounded: "{rounded.none}"
+    size: "8px"
   storyboard-sheet:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.paper-ink}"
@@ -156,7 +168,7 @@ components:
 
 The portfolio is a film by Nolann Petri. Every inner page is a reel and every fact is a credit; the interface lives in the projection-black bar at the top. The page is black before it is anything else. The home is the one place without words: "Lignes", an exact grid of hairlines on which his name is traced like a plotter, then a front of light that raises the name into walls and grows a city of lines as you scroll, and folds it all flat on the way back. It exists to show what he can code in design, so it carries no text past the name, no links and no summary.
 
-Density is low and deliberate: fewer things shown bigger, big black margins, hairline rules instead of boxes. The one exception is the Code reel, which is allowed the dense, gridded look of an editing suite (viewer, inspector, timeline with coloured clip tracks), and the Design reel, which swaps the black for pale storyboard paper. Light is treated as a physical thing: the anamorphic streak, the flare that follows the pointer, the projector beam in the screening room and the colour spill under the screen all come from a source in the scene, never from decorative glows.
+Density is low and deliberate: fewer things shown bigger, big black margins, hairline rules instead of boxes. The one exception is the Code reel, which is allowed the denser look of a screening of rushes (a procession of monitors playing real screen recordings, each with its credits beside it, then a tighter grid of smaller monitors), and the Design reel, which swaps the black for pale storyboard paper. Light is treated as a physical thing: the anamorphic streak, the flare that follows the pointer, the projector beam in the screening room and the colour spill under the screen all come from a source in the scene, never from decorative glows.
 
 Motion is film grammar: cuts, fades to black, iris-like letterbox openings, masking that travels to the picture's format, a credit roll. Nothing slides up into place like a card.
 
@@ -173,18 +185,18 @@ Motion is film grammar: cuts, fades to black, iris-like letterbox openings, mask
 A projection-room palette: near-pure black and warm credit white, one subtitle yellow, and blue that exists only as light.
 
 ### Primary
-- **Subtitle Yellow** (sub): the colour of burned-in subtitles. Used for the running timecode (viewer bar, film transport, photo reel readout), the timeline playhead, the solid button that is the view's one action, the chrome Contact link, the focus ring and text selection, the second word of the name (PETRI) where the name is set as a title (contact) or lies flat on the home grid, the front of light on the home, and the progress fill of the film scrubber.
+- **Subtitle Yellow** (sub): the colour of burned-in subtitles. Used for the running timecode (the on-air rush's monitor bar, film transport, photo reel readout), the solid button that is the view's one action (on Code, the on-air rush's Try it live plate), the chrome Contact link, the focus ring and text selection, the second word of the name (PETRI) where the name is set as a title (contact) or lies flat on the home grid, the front of light on the home, and the progress fill of the film scrubber.
 
 ### Secondary
 - **Anamorphic Blue** (flare): light only. It is the horizontal streak of the front's source point on the home; it is never a text, border or fill colour for interface.
 
 ### Tertiary
-- **Clip track colours** (orvect for Company, track-client teal, track-hack violet, track-tools steel blue): used only on the Code edit timeline as the 2px top edge of each clip, the track-label swatch and the inspector meta swatch. They label a category; they never tint text or backgrounds.
-- **ORVECT Signal Orange** (orvect): belongs to ORVECT's own brand. It appears inside ORVECT's case study, logo and storyboard sheet, and as the Company track colour; nowhere else.
+- **Track colours** (orvect for Company, track-client teal, track-hack violet, track-tools steel blue): used only on the Code reel, as the 8px square swatch that opens each rush's role and year line. They label a category; they never tint text, borders or backgrounds.
+- **ORVECT Signal Orange** (orvect): belongs to ORVECT's own brand. It appears inside ORVECT's case study, logo (including its chapter slate on Code) and storyboard sheet, and as the Company swatch; nowhere else.
 
 ### Neutral
 - **Projection Black** (black): page ground, the chrome bar, masking panels, screen surround.
-- **Ink** (ink, ink-2, ink-3): the three greys of equipment: media placeholders and suite panels (ink), monitor bars (ink-2), idle clips (ink-3). Frames sit on #030303 inside the black.
+- **Ink** (ink): the grey of equipment: media placeholders, rush monitor bars and screens. Frames sit on #030303 inside the black.
 - **Credit White** (white): all primary text; the hover fill of hairline buttons.
 - **Dim** (dim): roles, leads, secondary copy, inactive nav.
 - **Faint** (faint): slates, footer line, frame-edge numbers; the quietest readable text.
@@ -208,12 +220,12 @@ A projection-room palette: near-pure black and warm credit white, one subtitle y
 
 ### Hierarchy
 - **Display name** (300, clamp(22px, 3.1vw, 50px), line-height 1, tracking .52em, expanded caps): NOLANN PETRI in the opening frame and the end roll (roll variant tracks .4em up to 58px). NOLANN white, PETRI yellow.
-- **Headline** (300, clamp(26px, 3.4vw, 54px), 1.1, tracking .38em, expanded caps): the title card that opens every reel. Chapter titles inside a reel use the same voice at .14–.2em tracking (board heads, the Col de l'Est heading, photo slates).
+- **Headline** (300, clamp(26px, 3.4vw, 54px), 1.1, tracking .38em, expanded caps): the title card that opens every reel. Chapter titles inside a reel use the same voice at .14–.2em tracking (Code chapter slates and More rushes, board heads, the Col de l'Est heading, photo slates).
 - **Reel title** (250, clamp(30px, 5.2vw, 84px), 1, tracking .3em, expanded caps): "Next reel" links and programme rows (programme at up to 46px, .26em); tracking opens further on hover.
-- **Title** (400, clamp(20px, 1.7vw, 26px), 1.15, width 112): project names in the inspector and film list (15–20px).
+- **Title** (400, clamp(20px, 1.7vw, 26px), 1.15, width 112): project names in the rush credits; the film list and More rushes use it at 15–20px.
 - **Subtitle** (500, clamp(14px, 1.15vw, 18px), 1.45, yellow, max 62ch, centred with a tight dark text-shadow).
 - **Body** (400, 15px, 1.6): leads at 15.5px in dim, max 52–62ch.
-- **Section title** (500, 12px, tracking .34em, expanded caps, white): the heading of a section (The edit, About the film). It is the heading itself, not a label above one.
+- **Section title** (500, 12px, tracking .34em, expanded caps, white): the heading of a section (About the film). It is the heading itself, not a label above one.
 - **Role** (500, 11px, 1.3, tracking .22em, width 78, caps, dim): credit roles, fact labels, "Next reel".
 - **Control** (500, 11px, tracking .16–.2em, width 112, caps): nav reels, buttons, Contact.
 - **Timecode** (Azeret Mono 400, 11px, tracking .04em, tabular figures, dim or yellow).
@@ -229,15 +241,15 @@ A projection-room palette: near-pure black and warm credit white, one subtitle y
 
 The page is a projection room. A fixed black top bar (`bar`, 52px; 48px under 860px) holds the name, the four reels, the subtitle track and Contact in a three-column grid. Content sits in a centred container capped at 1560px with a fluid side gutter (`gutter`). Every page opens with a title card padded from the bar by clamp(72px, 16vh, 180px) and closes with the same end-credit block: a giant "Next reel" link, a two-column credit list, and a faint footer line over a hairline.
 
-The 2.39:1 frame is the unit of composition on the inner reels (the Col de l'Est film is 2.39). The home is full-bleed: a sticky 100svh stage inside a 680svh scroll, with nothing laid over it but the chrome, which steps aside while the scroll moves and returns at rest, at the end and on keyboard focus, and a 1px scroll cue that sits above the mobile tab bar.
+The 2.39:1 frame is the unit of composition on the inner reels (the Col de l'Est film is 2.39). The home is full-bleed: a sticky 100svh stage inside a 920svh scroll, with nothing laid over it but the chrome, which steps aside while the scroll moves and returns at rest, at the end and on keyboard focus, and a 1px scroll cue that sits above the mobile tab bar.
 
-Credit lists are two columns with the role right-aligned against a 28px central gutter, as at the end of a film; below 600px they collapse to one left-aligned column with a 3px gap. Rows of lists, paths and the programme are separated by hairlines with 22px padding, never boxed.
+Credit lists are two columns with the role right-aligned against a 28px central gutter, as at the end of a film; below 600px they collapse to one left-aligned column with a 3px gap. Rows of lists, paths and the programme are separated by hairlines with 22px padding, never boxed. The Code reel sets chapter slates and rushes on a 12-column grid: heading or monitor in columns 1–8 (1–7 for a heading), credits in 9–12; chapters open with a hairline and a wider pause than between rushes.
 
-Responsive steps: 1100px (suite stacks, programme drops a column, films go to 3 columns); 860px (reels move to a fixed bottom bar of 52px plus safe area, sticky ORVECT monitor, storyboards to 6-of-12 panels, films to 2); 600px (credits single column, programme and panels full width). The Photo reel is a sticky horizontal film strip in 3D; under reduced motion it becomes a wrapped static grid.
+Responsive steps: 1100px (rush monitors take columns 1–7 and credits 8–12, More rushes to 2 columns, programme drops a column, films go to 3 columns); 860px (reels move to a fixed bottom bar of 52px plus safe area, rushes and chapter slates stack monitor over credits, storyboards to 6-of-12 panels, films to 2); 600px (credits single column, More rushes to one column with the monitor beside its text, programme and panels full width). The Photo reel is a sticky horizontal film strip in 3D; under reduced motion it becomes a wrapped static grid.
 
 ## Elevation & Depth
 
-Flat on the black. Depth comes from light and projection: on the home, hidden-line rendering (black faces write depth so walls and towers hide what stands behind them) and grid lines that fade as they graze toward the horizon; elsewhere the projector beam cone and the blurred colour spill in the screening room, the 3D perspective of the film strip with a floor reflection, dimming of non-focused frames and clips (brightness .55–.7, reduced saturation), and the grain layer.
+Flat on the black. Depth comes from light and projection: on the home, hidden-line rendering (black faces write depth so walls and towers hide what stands behind them) and grid lines that fade as they graze toward the horizon; elsewhere the projector beam cone and the blurred colour spill in the screening room, the 3D perspective of the film strip over a static pool of floor light, continuous dimming of strip frames by their distance from the centre (a black veil up to 50%, captions from 30% to full), off-air rushes held on their paused frame (brightness .4, saturate .5), film posters at brightness .7, and the grain layer.
 
 ### Shadow Vocabulary
 - **Frame hairline** (`box-shadow: 0 0 0 1px var(--line)`, white when selected): film posters and the screen edge; a ring, not a lift.
@@ -248,16 +260,16 @@ Flat on the black. Depth comes from light and projection: on the home, hidden-li
 
 ## Shapes
 
-Rectilinear. Frames, screens, sheets and panels have square corners; interactive plates (buttons, subtitle track, transport and lightbox controls, clips) take a barely-there 2px corner. Structure is drawn with 1px hairlines at 13% or 24% white. The recurring silhouettes are film ones: the 2.39 letterbox, masking panels that close to 16:9 or 9:16, the pentagonal playhead flag, the four-corner autofocus brackets of the cursor, and the square shot badge (20px, 1px paper-ink border) on storyboard panels.
+Rectilinear. Frames, screens, sheets and panels have square corners; interactive plates (buttons, subtitle track, transport and lightbox controls) take a barely-there 2px corner. Structure is drawn with 1px hairlines at 13% or 24% white. The recurring silhouettes are film ones: the 2.39 letterbox, masking panels that close to 16:9 or 9:16, the 16:10 monitor under its mono bar, the 8px square track swatch, the four-corner autofocus brackets of the cursor, and the square shot badge (20px, 1px paper-ink border) on storyboard panels.
 
 ## Components
 
 ### Buttons
 Slate plates with a hairline: quiet until touched.
-- **Shape:** 2px corner, 1px border at line-2, min-height 42px (38px in the inspector), 16px side padding, 10px gap to a 14px stroked arrow icon.
+- **Shape:** 2px corner, 1px border at line-2, min-height 42px, 16px side padding, 10px gap to a 14px stroked arrow icon.
 - **Default:** transparent with white control caps.
 - **Hover:** fills credit white with black text; .3s on the standard ease.
-- **Solid:** subtitle yellow with black text, reserved for the view's one outward action (See the landing, The website, Try it live); hover turns it white.
+- **Solid:** subtitle yellow with black text, reserved for the view's one outward action (The website; on Code, only the on-air rush's Try it live, the others stay hairline); hover turns it white.
 - **On paper:** border #9fa09e; hover fills paper-ink with paper text.
 - **Transport / lightbox:** 40px (48px in the lightbox) square hairline plates holding a 16–18px stroked icon; hover turns the border white.
 
@@ -271,13 +283,22 @@ The top letterbox bar: name left in expanded caps (NOLANN white, PETRI dim), the
 Role and name in a single baseline row: the name leads, the role follows and wraps below it, never above. In lists, the role sits right-aligned in its column against the name.
 
 ### Lignes (home)
-A WebGL2 scene of instanced line segments expanded to screen-space quads (analytic anti-aliasing, a halo only where light touches). The grid is white at 13% (every unit) and 30% (every fifth); the traced name is a monoline, chamfered capital set on a 4 × 6 grid, PETRI yellow while it lies flat. One front of light in subtitle yellow is the only cause of change: it raises the letters into 4.4-unit walls and grows towers with storey lines as it passes, then a returning front folds everything flat. Its source is a white-hot point with a blue anamorphic streak. Motion is spring-driven (a little overshoot, then still) and tied to a critically damped scroll; the camera runs a cubic-Hermite curve through the plan, the rise, a slalom through the gaps between letters, an avenue, an orbit round the city and the return. The pointer lifts the grid like a finger under paper and lights the lines near it. Reduced motion shows the flat plan only.
+A WebGL2 scene of instanced line segments expanded to screen-space quads (analytic anti-aliasing, a halo only where light touches). The grid is white at 13% (every unit) and 30% (every fifth); the traced name is a monoline, chamfered capital set on a 4 × 6 grid, PETRI yellow while it lies flat. One front of light in subtitle yellow is the only cause of change: it raises the letters into 4.4-unit walls and grows towers with storey lines as it passes, then a returning front folds everything flat. Its source is a white-hot point with a blue anamorphic streak. Motion is spring-driven (a little overshoot, then still) and tied to a critically damped scroll; the camera runs a cubic-Hermite curve that only ever moves forward: the plan, the rise, a slalom through the gaps between letters, an avenue, then out of the city while an eraser front lays it flat; the name is traced again standing ahead, high in the frame, and the four reels appear beneath it in reel-title caps (hovering one dims the others and draws a subtitle-yellow underline). The end menu is the only text on the home besides the name. The pointer lifts the grid like a finger under paper and lights the lines near it. Reduced motion shows the flat plan only.
 
-### Edit timeline (Code)
-A non-linear editor: viewer with a mono URL and yellow timecode bar, inspector with fact list and one solid action, and a timeline of 62px tracks with sticky labels. Clips are ink-3 thumbnails desaturated to .25, with a 2px inset top edge in their track colour; hover lifts saturation, selection removes the filter and adds a white 1px inset ring. A yellow 1px playhead with a pentagonal flag can be dragged.
+### Chapter slate (Code)
+A hairline top rule with 30px above the heading. The heading takes columns 1–7: ORVECT's own mark (Space Grotesk, orange glyph) for the ORVECT chapter, otherwise expanded light caps (300, clamp(22px, 2.2vw, 36px), tracking .18em). Columns 9–12 hold a one-line lead (18px, max 34ch) and, when needed, a tight credit list (88px role column, 13.5px dim names).
+
+### Rush (Code)
+A monitor and its credits. The monitor (columns 1–8) is a mono bar in ink (URL left, 25fps timecode right) over a 16:10 ink screen with a 1px hairline, playing the project's real muted recording. The credits (columns 9–12, 34px down) are the project title, a meta line opening with the 8px track swatch then role · year in dim, the Context / What I built / Goal facts under role caps (13.5px, max 52ch), the stack in mono dim, and one Try it live plate.
+- **On air:** one rush at a time, the one crossing the middle band of the viewport. It plays, its timecode runs in subtitle yellow from the video, and its Try it live plate turns solid yellow. Off-air rushes hold their paused frame at brightness .4 and saturate .5 (.8s on the standard ease); nothing plays off screen.
+- **Live:** on wide screens Try it live swaps the recording for the live site in the same monitor; the bar reads LIVE, the plate reads Open in a new tab, a hairline Back to the recording button returns. Phones and embedded previews open a new tab instead.
+- **Reduced motion:** nothing autoplays; the video shows native controls.
+
+### More rushes (Code)
+Under an expanded-caps heading on a hairline, a 3/2/1-column list of smaller 16:10 monitors (ink, 1px hairline that strengthens to line-2 on hover or focus). Each is one link to the live project: the title (17px, width 112) with a 14px arrow glued to its last word that brightens and nudges up-right on hover, the role · year line and one dim line (13.5px, max 46ch). The recording previews under a fine pointer and plays in view on touch. Under 600px the monitor sits beside its text.
 
 ### Film strip (Photo)
-Stills at min(56svh, 620px) in a 3D horizontal strip, reflected below; frames not near the centre dim to .55 and their captions to 35%. Captions pair the title with a mono frame-edge number in faint.
+Stills at min(56svh, 620px) in a 3D horizontal strip over a faint static pool of light; each frame's light (0–1) follows its distance from the centre every frame, laying a black veil of up to 50% over it and fading its caption from 30% to full. Captions pair the title with a mono frame-edge number in faint.
 
 ### Screening room (Film)
 A screen with black masking panels that travel to the film's format over 1s, a projector beam drawn as a cone from a projection-port point in the frame's colour, a blurred spill beneath, and a transport of hairline buttons, yellow timecode and a 2px yellow-filled scrubber with a white 2×16px thumb.
@@ -306,7 +327,7 @@ The name returns, the email is set large in light Archivo with a hairline underl
 ### Don't:
 - **Don't** use Azeret Mono for names, roles, labels or prose.
 - **Don't** paint with anamorphic blue: no blue text, borders or fills.
-- **Don't** use Space Grotesk or ORVECT orange outside ORVECT's own case study, logo, board and timeline track.
+- **Don't** use Space Grotesk or ORVECT orange outside ORVECT's own case study, logo, board and Company swatch.
 - **Don't** box content in rounded cards or float it on drop shadows; use hairlines and black.
 - **Don't** animate entrances as slide-up cards.
 - **Don't** add an NP logo to the header; the bar carries the name in type.

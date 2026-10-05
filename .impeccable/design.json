@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-27T23:18:51",
+  "generatedAt": "2026-09-29T14:08:54",
   "title": "Design System: Nolann Petri — Le Générique",
   "extensions": {
     "colorMeta": {
@@ -32,36 +32,6 @@
           "#a5a5a6",
           "#c9c9ca",
           "#eeeef0"
-        ]
-      },
-      "ink-2": {
-        "role": "neutral",
-        "displayName": "Ink, Monitor Bar",
-        "canonical": "oklch(19.7% 0.004 286)",
-        "tonalRamp": [
-          "#0b0b0d",
-          "#252527",
-          "#424244",
-          "#616163",
-          "#828285",
-          "#a5a5a7",
-          "#c9c9cc",
-          "#eeeef1"
-        ]
-      },
-      "ink-3": {
-        "role": "neutral",
-        "displayName": "Ink, Idle Clip",
-        "canonical": "oklch(24.1% 0.006 286)",
-        "tonalRamp": [
-          "#0b0b0d",
-          "#252528",
-          "#424245",
-          "#616164",
-          "#828286",
-          "#a4a4a8",
-          "#c9c9cd",
-          "#eeeef2"
         ]
       },
       "white": {
@@ -274,7 +244,7 @@
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Project names in inspector and film list."
+        "purpose": "Project names in rush credits; film list and More rushes at 15–20px."
       },
       "subtitle": {
         "displayName": "Subtitle",
@@ -411,12 +381,12 @@
       "css": ".ds-card{padding:64px 32px;background:#000;color:#ededeb;font-family:'Archivo',sans-serif}.ds-card h1{margin:0 -.38em 0 0;font-size:48px;line-height:1.1;font-weight:300;font-stretch:125%;text-transform:uppercase;letter-spacing:.38em}.ds-card p{margin:26px 0 0;max-width:58ch;color:#9c9c97;font-size:15.5px;line-height:1.6}"
     },
     {
-      "name": "Timeline Clip",
+      "name": "Rush (on air)",
       "kind": "custom",
-      "refersTo": "timeline-clip",
-      "description": "Desaturated clip with a 2px track-colour top edge; selected gets a white ring.",
-      "html": "<div class=\"ds-lane\"><button class=\"ds-clip\" style=\"--c:#ff5c28\">ORVECT</button><button class=\"ds-clip\" aria-pressed=\"true\" style=\"--c:#45b8a4\">Col de l’Est</button></div>",
-      "css": ".ds-lane{display:flex;gap:6px;padding:7px;height:62px;background:#0b0b0c}.ds-clip{position:relative;width:160px;border:0;border-radius:2px;background:#1f1f22;color:#ededeb;font:500 11px/1.2 'Archivo',sans-serif;text-align:left;padding:14px 8px 5px;display:flex;align-items:flex-end;cursor:pointer;box-shadow:inset 0 2px 0 var(--c),inset 0 0 0 1px rgb(255 255 255/.08);filter:saturate(.25) brightness(.55);transition:box-shadow .3s,filter .3s}.ds-clip:hover{filter:saturate(.7) brightness(.85)}.ds-clip[aria-pressed=true]{filter:none;box-shadow:inset 0 2px 0 var(--c),inset 0 0 0 1px #ededeb}.ds-clip:focus-visible{outline:1px solid #f3d34a;outline-offset:4px}"
+      "refersTo": "monitor-bar",
+      "description": "A 16:10 monitor under a mono URL/timecode bar, credits beside it with the 8px track swatch; on air the timecode and the Try it live plate turn yellow, off air the screen dims.",
+      "html": "<article class=\"ds-rush\"><div class=\"ds-mon\"><p class=\"ds-bar\"><span>derka1385.github.io/survive-exe</span><span class=\"ds-tc\">00:00:12:08</span></p><div class=\"ds-screen\"></div></div><div class=\"ds-copy\"><h3>SURVIVE.EXE</h3><p class=\"ds-meta\"><i style=\"--c:#a38cff\"></i>Hackathon · solo · 2026</p><dl><dt>Goal</dt><dd>Survive from 09:00 to 17:00.</dd></dl><p class=\"ds-stack\">JavaScript · ES modules</p><a class=\"ds-live\" href=\"#\">Try it live</a></div></article>",
+      "css": ".ds-rush{display:grid;grid-template-columns:2fr 1fr;gap:28px;align-items:start;color:#ededeb;font-family:'Archivo',sans-serif}.ds-bar{display:flex;justify-content:space-between;gap:12px;margin:0;padding:9px 12px;background:#0b0b0c;border:1px solid rgb(255 255 255/.13);border-bottom:0;font:11px/1.3 'Azeret Mono',monospace;color:#9c9c97}.ds-tc{color:#f3d34a}.ds-screen{aspect-ratio:16/10;background:#0b0b0c;border:1px solid rgb(255 255 255/.13)}.ds-rush:not(:hover) .ds-screen{filter:brightness(.4) saturate(.5)}.ds-copy{display:grid;gap:12px}.ds-copy h3{margin:0;font-size:24px;font-weight:400;font-stretch:112%;line-height:1.15}.ds-meta{display:flex;align-items:center;gap:10px;margin:0;font-size:12.5px;font-stretch:90%;color:#9c9c97}.ds-meta i{width:8px;height:8px;background:var(--c)}.ds-copy dl{margin:0}.ds-copy dt{font-size:11px;font-weight:500;font-stretch:78%;text-transform:uppercase;letter-spacing:.22em;color:#9c9c97}.ds-copy dd{margin:3px 0 0;font-size:13.5px;line-height:1.55}.ds-stack{margin:0;font:11px/1.5 'Azeret Mono',monospace;color:#9c9c97}.ds-live{justify-self:start;display:inline-flex;align-items:center;min-height:42px;padding:0 16px;border:1px solid #f3d34a;border-radius:2px;background:#f3d34a;color:#000;font-size:11px;font-weight:500;font-stretch:112%;text-transform:uppercase;letter-spacing:.16em;text-decoration:none;transition:background .3s cubic-bezier(.16,1,.3,1)}.ds-live:hover{background:#ededeb;border-color:#ededeb}.ds-live:focus-visible{outline:1px solid #f3d34a;outline-offset:4px}"
     },
     {
       "name": "Storyboard Sheet",
@@ -435,7 +405,7 @@
   ],
   "narrative": {
     "northStar": "Le Générique",
-    "overview": "**Creative North Star: \"Le Générique\"**\n\nThe portfolio is a film by Nolann Petri. Every inner page is a reel and every fact is a credit; the interface lives in the projection-black bar at the top. The page is black before it is anything else. The home is the one place without words: \"Lignes\", an exact grid of hairlines on which his name is traced like a plotter, then a front of light that raises the name into walls and grows a city of lines as you scroll, and folds it all flat on the way back. It exists to show what he can code in design, so it carries no text past the name, no links and no summary.\n\nDensity is low and deliberate: fewer things shown bigger, big black margins, hairline rules instead of boxes. The one exception is the Code reel, which is allowed the dense, gridded look of an editing suite (viewer, inspector, timeline with coloured clip tracks), and the Design reel, which swaps the black for pale storyboard paper. Light is treated as a physical thing: the anamorphic streak, the flare that follows the pointer, the projector beam in the screening room and the colour spill under the screen all come from a source in the scene, never from decorative glows.\n\nMotion is film grammar: cuts, fades to black, iris-like letterbox openings, masking that travels to the picture's format, a credit roll. Nothing slides up into place like a card.\n\n**Key Characteristics:**\n- Projection black ground with 2.39:1 frames and a fixed black top bar (52px, 48px under 860px).\n- Credit white text; one subtitle yellow reserved for subtitles, timecode and the single action per view.\n- Archivo variable: expanded (wdth 125) light capitals for titles, condensed (wdth 78) small capitals for roles.\n- Azeret Mono only for machine readouts: timecode, coordinates, frame numbers, URLs, tech stacks.\n- Hairlines and 2px corners; no cards, no shadows on the dark ground.\n- A live grain layer (5.5% overlay) over every page, removed under reduced motion.",
+    "overview": "**Creative North Star: \"Le Générique\"**\n\nThe portfolio is a film by Nolann Petri. Every inner page is a reel and every fact is a credit; the interface lives in the projection-black bar at the top. The page is black before it is anything else. The home is the one place without words: \"Lignes\", an exact grid of hairlines on which his name is traced like a plotter, then a front of light that raises the name into walls and grows a city of lines as you scroll, and folds it all flat on the way back. It exists to show what he can code in design, so it carries no text past the name, no links and no summary.\n\nDensity is low and deliberate: fewer things shown bigger, big black margins, hairline rules instead of boxes. The one exception is the Code reel, which is allowed the denser look of a screening of rushes (a procession of monitors playing real screen recordings, each with its credits beside it, then a tighter grid of smaller monitors), and the Design reel, which swaps the black for pale storyboard paper. Light is treated as a physical thing: the anamorphic streak, the flare that follows the pointer, the projector beam in the screening room and the colour spill under the screen all come from a source in the scene, never from decorative glows.\n\nMotion is film grammar: cuts, fades to black, iris-like letterbox openings, masking that travels to the picture's format, a credit roll. Nothing slides up into place like a card.\n\n**Key Characteristics:**\n- Projection black ground with 2.39:1 frames and a fixed black top bar (52px, 48px under 860px).\n- Credit white text; one subtitle yellow reserved for subtitles, timecode and the single action per view.\n- Archivo variable: expanded (wdth 125) light capitals for titles, condensed (wdth 78) small capitals for roles.\n- Azeret Mono only for machine readouts: timecode, coordinates, frame numbers, URLs, tech stacks.\n- Hairlines and 2px corners; no cards, no shadows on the dark ground.\n- A live grain layer (5.5% overlay) over every page, removed under reduced motion.",
     "keyCharacteristics": [
       "Projection black ground with 2.39:1 frames and a fixed black top bar (52px, 48px under 860px).",
       "Credit white text; one subtitle yellow reserved for subtitles, timecode and the single action per view.",
@@ -477,7 +447,7 @@
       },
       {
         "name": "The Source Rule",
-        "body": "Nothing on the black glows or casts a shadow unless a light in the scene (footage, projector, pointer) explains it.",
+        "body": "Nothing on the black glows or casts a shadow unless a light in the scene (the front of light, the projector, the pointer) explains it.",
         "section": "elevation"
       }
     ],
@@ -486,18 +456,18 @@
       "**Do** keep yellow to subtitles, timecode and the one action per view; everything else is white, dim or faint.",
       "**Do** set titles in Archivo expanded (wdth 125) light caps with wide tracking and roles in condensed (wdth 78) caps at 11px.",
       "**Do** lead every credit with the name; the role follows or wraps below.",
-      "**Do** move between states with cuts, fades through black, masking and letterbox openings on the `ease` (cubic-bezier(.16, 1, .3, 1)) and `ease-io` (cubic-bezier(.65, 0, .35, 1)) curves.",
+      "**Do** move between states with cuts, fades through black and masking on the `ease` (cubic-bezier(.16, 1, .3, 1)) and `ease-io` (cubic-bezier(.65, 0, .35, 1)) curves.",
       "**Do** give every glow a source: the front of light, the projector or the pointer.",
+      "**Don't** put words on the home past the traced name.",
       "**Do** let every reel still play under reduced motion, without the camera work and grain."
     ],
     "donts": [
       "**Don't** use Azeret Mono for names, roles, labels or prose.",
       "**Don't** paint with anamorphic blue: no blue text, borders or fills.",
-      "**Don't** use Space Grotesk or ORVECT orange outside ORVECT's own case study, logo, board and timeline track.",
+      "**Don't** use Space Grotesk or ORVECT orange outside ORVECT's own case study, logo, board and Company swatch.",
       "**Don't** box content in rounded cards or float it on drop shadows; use hairlines and black.",
       "**Don't** animate entrances as slide-up cards.",
-      "**Don't** add an NP logo to the header; the bar carries the name in type.",
-      "Don't put words on the home past the traced name."
+      "**Don't** add an NP logo to the header; the bar carries the name in type."
     ]
   }
 }

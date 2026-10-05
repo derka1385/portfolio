@@ -134,6 +134,7 @@ const towers = [];
     const hs = 0.6 + rnd() * 1.1 + (rnd() < 0.12 ? 0.9 : 0);
     const cx = x + (rnd() - 0.5), cz = z + (rnd() - 0.5);
     if (clearance(cx, cz) < hs + 4.5) continue;
+    if (cx > 215 && Math.abs(cz) < 14 + hs) continue;          // the road straight out of the city stays open
     const far = clamp((cx - 38) / 200), side = clamp(Math.abs(cz) / 80);
     let h = 1.5 + rnd() * 7 + Math.pow(rnd(), 3) * (18 + 80 * far) * (1 - side * 0.5);
     if (rnd() < 0.03 + far * 0.05) h += 40 + rnd() * 60;
@@ -193,6 +194,17 @@ const line = (a, b, k, t = [0, 0, 0, 0]) => { L.A.push(...a); L.B.push(...b); L.
     }
   });
 }
+// The ending: the name again, standing ahead of the camera once the city is gone.
+const YC = 7;
+{
+  const total = strokes.reduce((s, [ax, az, bx, bz]) => s + Math.hypot(bx - ax, bz - az), 0);
+  let acc = 0;
+  strokes.forEach(([ax, az, bx, bz, petri]) => {
+    const l = Math.hypot(bx - ax, bz - az);
+    line([0, YC - az, ax], [0, YC - bz, bx], [6, acc / total, l / total, petri]);
+    acc += l;
+  });
+}
 const lineCount = L.K.length / 4;
 
 const F = { P: [], K: [], T: [] };
@@ -213,20 +225,20 @@ const faceCount = F.P.length / 3;
    Shaders. One function places every point of the world for the current moment; lines and faces share it.
    ============================================================================================= */
 const WORLD = `
-uniform float uFront, uFold, uTrace, uReveal, uFade, uMouseOn;
+uniform float uFront, uFold, uErase, uTrace, uReveal, uFade, uMouseOn;
 uniform vec3 uMouse;
 float spring(float t) {                                   // 0 to 1, a little overshoot, then still
   t = max(t, 0.0);
   return 1.0 - exp(-4.2 * t) * (cos(6.5 * t) + 0.65 * sin(6.5 * t));
 }
-float built(float x, float lag) {                         // raised by the front, folded by the one coming back
-  return spring((uFront - x) / lag) * clamp(1.0 - spring((x - uFold) / lag), 0.0, 1.0);
+float built(float x, float lag) {                         // raised by the front, laid flat again by the eraser behind it
+  return spring((uFront - x) / lag) * clamp(1.0 - spring((x - uFold) / lag), 0.0, 1.0) * clamp(1.0 - spring((uErase - x) / lag), 0.0, 1.0);
 }
 float bump(vec2 p) {                                      // the pointer lifts the paper
   vec2 d = p - uMouse.xz;
   return uMouseOn * 1.15 * exp(-dot(d, d) / 30.0);
 }
-// kind: 0,1 grid · 2 letter base · 3 letter top / wall face · 4 letter corner · 5 tower
+// kind: 0,1 grid · 2 letter base · 3 letter top / wall face · 4 letter corner · 5 tower · 6 the name, standing, at the end
 vec3 place(vec3 p, vec4 k, vec4 t, float endB) {
   float kind = k.x;
   vec3 w = p;
@@ -251,53 +263,63 @@ layout(location = 3) in vec4 iK;
 layout(location = 4) in vec4 iT;
 uniform mat4 uV, uP;
 uniform vec2 uRes;
-uniform float uDpr, uFog, uLod;
+uniform float uDpr, uFog, uLod, uTrace2, uX2, uGrid;
 uniform vec3 uCam;
 ${WORLD}
 out float vD, vCore, vHalo, vA;
 out vec3 vCol;
 void main() {
   float kind = iK.x;
-  vec3 A = place(iA, iK, iT, 0.0), B = place(iB, iK, iT, 1.0);
-  if (kind > 2.5 && kind < 3.5) { A.y += iT.x * built(iA.x, 4.0); B.y += iT.x * built(iB.x, 4.0); }
-  float alpha = kind < 0.5 ? 0.13 : kind < 1.5 ? 0.3 : kind < 4.5 ? 0.95 : (iK.y < 0.0 ? 0.62 : 0.26);
-  // the name is traced once, segment by segment
+  vec3 A, B;
+  if (kind > 5.5) {
+    A = iA + vec3(uX2, 0.0, 0.0); B = iB + vec3(uX2, 0.0, 0.0);   // standing in the plane x = uX2
+  } else {
+    A = place(iA, iK, iT, 0.0); B = place(iB, iK, iT, 1.0);
+    if (kind > 2.5 && kind < 3.5) { A.y += iT.x * built(iA.x, 4.0); B.y += iT.x * built(iB.x, 4.0); }
+  }
+  float alpha = kind < 0.5 ? 0.13 : kind < 1.5 ? 0.3 : (kind < 4.5 || kind > 5.5) ? 0.95 : (iK.y < 0.0 ? 0.62 : 0.26);
+  // the name is traced segment by segment, at the start and again at the end
   float tip = 0.0;
-  if (kind > 1.5 && kind < 2.5) {
-    float f = clamp((uTrace - iK.y) / max(iK.z, 1e-4), 0.0, 1.0);
+  if ((kind > 1.5 && kind < 2.5) || kind > 5.5) {
+    float tr = kind > 5.5 ? uTrace2 : uTrace;
+    float f = clamp((tr - iK.y) / max(iK.z, 1e-4), 0.0, 1.0);
     B = mix(A, B, f);
-    tip = f > 0.0 && f < 0.999 && uTrace < 1.0 ? 1.0 : 0.0;
+    tip = f > 0.0 && f < 0.999 && tr < 1.0 ? 1.0 : 0.0;
     alpha *= step(0.001, f);
   }
   if (kind > 2.5 && kind < 4.5) {
     float h = max(built(iA.x, 4.0), built(iB.x, 4.0));
     alpha *= smoothstep(0.004, 0.06, h) * step(0.999, uTrace);
   }
-  if (kind > 4.5) {
+  if (kind > 4.5 && kind < 5.5) {
     float g = built(iT.x, 7.0 + iT.w * 0.08);
     alpha *= smoothstep(0.002, 0.03, g);
     if (iK.y >= 0.0) alpha *= smoothstep(iK.y - 0.02, iK.y + 0.01, g);   // floors appear as the top passes them
   }
   vec3 M = (A + B) * 0.5;
   // light: the fronts and the pointer
-  float df = abs(M.x - uFront), dg = abs(M.x - uFold);
-  float lf = (exp(-df * df / 0.18) + 0.35 * exp(-df * df / 4.0)) * step(uFront, 400.0) + (exp(-dg * dg / 0.18) + 0.35 * exp(-dg * dg / 4.0)) * step(uFold, 380.0);
+  float df = abs(M.x - uFront), dg = abs(M.x - uFold), de = abs(M.x - uErase);
+  float lf = (exp(-df * df / 0.18) + 0.35 * exp(-df * df / 4.0)) * step(uFront, 400.0) + (exp(-dg * dg / 0.18) + 0.35 * exp(-dg * dg / 4.0)) * step(uFold, 380.0)
+           + (exp(-de * de / 0.18) + 0.35 * exp(-de * de / 4.0)) * step(-400.0, uErase) * (kind < 5.5 ? 1.0 : 0.0);
   vec2 dm = M.xz - uMouse.xz;
   float lm = uMouseOn * exp(-dot(dm, dm) / 46.0);
-  float light = clamp(lf + lm * 0.8 + tip, 0.0, 1.6);
+  float light = clamp(lf + lm * 0.8 * step(kind, 5.5) + tip, 0.0, 1.6);
+  if (kind > 5.5) light = max(light, 0.22);                 // the sign glows a little on its own
   vec3 white = vec3(0.93, 0.93, 0.92), yellow = vec3(0.953, 0.827, 0.29);
-  float petri = kind > 1.5 && kind < 2.5 ? iK.w * (1.0 - clamp(built(M.x, 4.0), 0.0, 1.0)) : 0.0;
+  float petri = kind > 1.5 && kind < 2.5 ? iK.w * (1.0 - clamp(built(M.x, 4.0), 0.0, 1.0)) : kind > 5.5 ? iK.w : 0.0;
   vCol = mix(mix(white, yellow, petri * 0.85), yellow, clamp(light, 0.0, 1.0));
   if (kind < 1.5) {
     alpha *= 1.0 - smoothstep(uReveal - 10.0, uReveal, length(M.xz));
     alpha *= smoothstep(0.006, 0.07, abs(normalize(M - uCam).y));   // grazing lines fade toward the horizon
+    alpha *= uGrid;
   }
+  if (kind > 1.5 && kind < 5.5) alpha *= 1.0 - smoothstep(0.0, 10.0, uErase - M.x);   // what the eraser laid flat fades away
   // reach of the eye: fine lines thin out with distance, everything sinks into the dark
   vec4 va = uV * vec4(A, 1.0), vb = uV * vec4(B, 1.0);
   float dist = length(((va + vb) * 0.5).xyz);
   if (kind < 0.5) alpha *= 1.0 - smoothstep(uLod * 0.3, uLod, dist);
-  if (kind > 4.5 && iK.y >= 0.0) alpha *= 1.0 - smoothstep(70.0, 190.0, dist);   // far floors melt into their towers
-  alpha *= exp(-max(dist - 30.0, 0.0) / uFog);
+  if (kind > 4.5 && kind < 5.5 && iK.y >= 0.0) alpha *= 1.0 - smoothstep(70.0, 190.0, dist);   // far floors melt into their towers
+  if (kind < 5.5) alpha *= exp(-max(dist - 30.0, 0.0) / uFog);
   if (kind > 1.5) alpha *= uFade;
   alpha = min(1.0, alpha + light * (kind < 1.5 ? 0.55 : 0.35) * step(0.0005, alpha));
   // clip against the near plane before going to the screen
@@ -321,7 +343,7 @@ void main() {
   }
   dir = len > 1e-4 ? dir / len : vec2(1.0, 0.0);
   vec2 nrm = vec2(-dir.y, dir.x);
-  vCore = 0.55 * uDpr * (kind > 1.5 && kind < 4.5 ? 1.25 : 1.0);
+  vCore = 0.55 * uDpr * ((kind > 1.5 && kind < 4.5) || kind > 5.5 ? 1.25 : 1.0);
   float reach = (1.5 + 7.0 * light) * uDpr;
   float halfW = vCore + reach + uDpr;
   vec4 c = aQ.x < 0.5 ? ca : cb;
@@ -395,7 +417,7 @@ void main() { o = vec4(0.0); }`;
    GL setup
    ============================================================================================= */
 let progL = null, progF = null, progS = null, vaoL, vaoF, vaoS, UL = {}, UF = {}, US = {};
-const UNI = ['uV', 'uP', 'uRes', 'uDpr', 'uFog', 'uLod', 'uCam', 'uLamp', 'uLen', 'uAmt', 'uFront', 'uFold', 'uTrace', 'uReveal', 'uFade', 'uMouseOn', 'uMouse'];
+const UNI = ['uV', 'uP', 'uRes', 'uDpr', 'uFog', 'uLod', 'uCam', 'uLamp', 'uLen', 'uAmt', 'uFront', 'uFold', 'uErase', 'uTrace', 'uTrace2', 'uX2', 'uGrid', 'uReveal', 'uFade', 'uMouseOn', 'uMouse'];
 function shader(type, src) {
   const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s);
   if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
@@ -464,9 +486,9 @@ function rail(u) {
 }
 let D0 = 80;
 const topDown = (k = 1) => orbit([0, 0, 0], 0, TOP, D0 * k, 30);
-const OVER = { T: [120, 14, -6], yaw: 1.5 * Math.PI, pitch: 0.21, dist: 262, fov: 44 };
 // progress marks along the scroll
-const M = { hold: 0.04, rise: 0.16, run0: 0.24, run1: 0.66, climb: 0.79, fold: 0.955 };
+const M = { hold: 0.04, rise: 0.16, run0: 0.24, run1: 0.62, erased: 0.72, name1: 0.84, menu: 0.88 };
+let X2 = 430;                                              // where the name stands up again (set per screen shape)
 // key moments; the camera runs a smooth curve through them (cubic Hermite, Catmull-Rom tangents)
 let KEYS = [];
 function buildKeys() {
@@ -479,17 +501,16 @@ function buildKeys() {
   k(M.rise, orbit([-6 + 4 * pf, 2, 0], 0.5 - 0.2 * pf, 35 * Math.PI / 180, 60 * (1 + 1.7 * pf), 40));
   k(0.2, orbit([-26 + 8 * pf, 1.6, 9 - 3 * pf], 0.95 - 0.25 * pf, 16 * Math.PI / 180, 28 * (1 + 0.9 * pf), 52));
   for (let p = M.run0; p <= M.run1 + 1e-9; p += 0.002) k(p, rail((p - M.run0) / (M.run1 - M.run0) * 0.985));
-  const r = rail(0.985), f = norm(sub(r.at, r.eye));
-  const T0 = add(r.eye, scl(f, 12)), yaw0 = Math.atan2(f[0], -f[2]), pitch0 = Math.asin(-f[1]);
-  for (let p = M.run1 + 0.005; p < M.climb - 1e-9; p += 0.005) {
-    const t = ease((p - M.run1) / (M.climb - M.run1));
-    k(p, orbit(mix3(T0, OVER.T, t), lerp(yaw0 < 0 ? yaw0 + 2 * Math.PI : yaw0, OVER.yaw, t), lerp(pitch0, OVER.pitch, t) + 0.5 * Math.sin(Math.PI * t), lerp(12, OVER.dist, t), lerp(r.fov, OVER.fov, t)));
-  }
-  for (let p = M.climb; p <= M.fold + 1e-9; p += 0.01) {
-    const t = ease(clamp((p - M.climb) / (M.fold - M.climb)));
-    k(p, orbit(mix3(OVER.T, [0, 0, 0], t), lerp(OVER.yaw, 2 * Math.PI, t), lerp(OVER.pitch, TOP, t), lerp(OVER.dist, D0, t), lerp(OVER.fov, 30, t)));
-  }
-  k(1, topDown(1));
+  // out of the city and straight on until the name stands ahead, high in the frame, with the reels beneath it
+  const aspect = W / Hh, tanV = Math.tan(17 * Math.PI / 180), tanH = tanV * aspect;
+  const dName = (NAME_HALF * 1.18) / tanH;
+  X2 = Math.max(430, 262 + dName * 1.6 + 16);
+  const ahead = (p, d, fov) => k(p, { eye: [X2 - d, YC, 0], at: [X2, YC - d * 0.085, 0], up: [0, 1, 0], fov });
+  k(0.66, { eye: [252, YC, 0], at: [X2, YC, 0], up: [0, 1, 0], fov: 48 });
+  ahead(M.erased, dName * 1.6, 40);
+  ahead(M.name1, dName * 1.15, 34);
+  ahead(M.menu, dName * 1.04, 34);
+  ahead(1, dName, 34);
   KEYS = K;
 }
 function camera(p) {
@@ -513,9 +534,11 @@ function fronts(p, camX) {
   if (p < M.hold) front = -NAME_HALF - 8;
   else if (p < M.rise) front = lerp(-NAME_HALF - 8, NAME_HALF + 6, ease((p - M.hold) / (M.rise - M.hold)));
   else front = Math.max(NAME_HALF + 6, camX + 34);
-  if (p > M.run1) front = Math.max(front, lerp(camX + 34, 320, ease(clamp((p - M.run1) / (M.climb - M.run1)))));
-  const fold = p < M.climb ? 500 : lerp(300, -NAME_HALF - 12, ease(clamp((p - M.climb) / (M.fold - M.climb - 0.015))));
-  return [front, fold];
+  if (p > M.run1) front = Math.max(front, lerp(camX + 34, 330, ease(clamp((p - M.run1) / 0.04))));
+  if (p > M.erased + 0.004) front = 9999;                   // both fronts go dark once the city is gone
+  // then the eraser: a second front that runs forward and lays everything flat as it passes
+  const erase = p < M.run1 ? -500 : p > M.erased + 0.004 ? 9999 : lerp(-60, 330, ease(clamp((p - M.run1) / (M.erased - M.run1))));
+  return [front, 500, erase];
 }
 
 /* =============================================================================================
@@ -551,11 +574,14 @@ function frame(now) {
     if (e > 2.6) { intro.done = true; intro.trace = 1; intro.reveal = 1000; body.classList.add('ready'); }
   }
   const T = target();
-  P = Math.abs(T - P) < 1e-5 ? T : lerp(P, T, 1 - Math.exp(-dt / 0.075));
+  P = Math.abs(T - P) < 1e-5 ? T : lerp(P, T, 1 - Math.exp(-dt / 0.11));
   exp.classList.toggle('moved', P > 0.01);
   const cam = camera(P);
-  const [front, fold] = fronts(P, cam.eye[0]);
-  const fade = 1 - ease(clamp((P - 0.965) / 0.03));
+  const [front, fold, erase] = fronts(P, cam.eye[0]);
+  const fade = 1;
+  const trace2 = clamp((P - M.erased) / (M.name1 - M.erased));
+  const grid = 1 - 0.6 * ease(clamp((P - M.run1) / 0.1));
+  exp.classList.toggle('menu-on', P > M.menu || reduce);
   const want = mouse.want * (now - mouse.seen < 2400 ? 1 : 0);
   mouse.on = lerp(mouse.on, want, 0.08);
   const Vm = view(cam.eye, norm(sub(cam.at, cam.eye)), cam.up);
@@ -570,17 +596,26 @@ function frame(now) {
       if (t > 0) mouse.ground = mix3(mouse.ground, add(a, scl(d, t)), mouse.on < 0.05 ? 1 : 0.35);
     }
   }
-  // the source of the light: where the front meets the name's axis, or the road ahead in the city
-  const building = P >= M.rise && P < M.climb && front > NAME_HALF + 7;
-  const lampX = P >= M.climb ? fold : front;
-  const lamp = [lampX, 0.06, building ? pathZ(lampX) : 0];
-  const lampAmt = (P >= M.climb ? clamp((380 - fold) / 60) : clamp((262 - front) / 30)) * (intro.done ? 1 : 0) * fade;
-  if (live) draw(Vm, Pm, front, fold, fade, cam.eye, lamp, lampAmt);
+  // the source of the light: where the front meets the name's axis or the road ahead; then the eraser's
+  let lamp, lampAmt;
+  if (P < M.run1) {
+    const building = P >= M.rise && front > NAME_HALF + 7;
+    lamp = [front, 0.06, building ? pathZ(front) : 0];
+    lampAmt = clamp((262 - front) / 30);
+  } else {
+    lamp = [erase, 0.06, 0];
+    lampAmt = 1 - clamp((P - (M.erased - 0.02)) / 0.03);
+  }
+  lampAmt *= intro.done ? 1 : 0;
+  const ending = { erase, trace2, grid };
+  if (live) draw(Vm, Pm, front, fold, fade, cam.eye, lamp, lampAmt, ending);
+
   if (Math.abs(T - P) > 1e-5 || !intro.done || Math.abs(mouse.on - want) > 0.002) raf = requestAnimationFrame(frame);
 }
-function draw(Vm, Pm, front, fold, fade, eye, lamp, lampAmt) {
+function draw(Vm, Pm, front, fold, fade, eye, lamp, lampAmt, end) {
   gl.viewport(0, 0, W, Hh);
   gl.clearColor(0, 0, 0, 1);
+  gl.depthMask(true);   // the last frame left it off, and a masked clear keeps the old depth
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
   gl.enable(gl.DEPTH_TEST);
   const set = u => {
@@ -588,6 +623,7 @@ function draw(Vm, Pm, front, fold, fade, eye, lamp, lampAmt) {
     gl.uniform1f(u.uFront, front); gl.uniform1f(u.uFold, fold);
     gl.uniform1f(u.uTrace, intro.trace); gl.uniform1f(u.uReveal, intro.reveal); gl.uniform1f(u.uFade, fade);
     gl.uniform1f(u.uMouseOn, mouse.on); gl.uniform3fv(u.uMouse, mouse.ground);
+    gl.uniform1f(u.uErase, end.erase);
   };
   // faces: depth only, pushed back a hair so their own edges draw on top
   gl.useProgram(progF); set(UF);
@@ -600,6 +636,7 @@ function draw(Vm, Pm, front, fold, fade, eye, lamp, lampAmt) {
   // lines: light adds up
   gl.useProgram(progL); set(UL);
   gl.uniform2f(UL.uRes, W, Hh); gl.uniform1f(UL.uDpr, dpr); gl.uniform3fv(UL.uCam, eye);
+  gl.uniform1f(UL.uTrace2, end.trace2); gl.uniform1f(UL.uX2, X2); gl.uniform1f(UL.uGrid, end.grid);
   const high = clamp((Math.abs(Vm[14]) - 20) / 200);
   gl.uniform1f(UL.uFog, lerp(160, 520, high));
   gl.uniform1f(UL.uLod, lerp(95, 150, high) * (W / dpr > 900 ? 1 : 0.8));
@@ -631,5 +668,6 @@ addEventListener('pointerdown', aim, { passive: true });
 document.addEventListener('pointerleave', () => { mouse.want = 0; wake(); });
 // any wheel during the intro finishes the trace at once
 addEventListener('wheel', () => { if (!intro.done) intro.t0 -= 3000; wake(); }, { passive: true, once: true });
-if (reduce) { exp.classList.add('still'); body.classList.add('ready'); }
+if (reduce) { exp.classList.add('still', 'menu-on'); body.classList.add('ready'); }
+if (!live) exp.classList.add('menu-on');
 measure();

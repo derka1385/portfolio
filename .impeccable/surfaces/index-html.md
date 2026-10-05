@@ -35,6 +35,16 @@ THESIS: One exact grid of hairlines and one front of light. The front sweeps lef
 
 FIRST VIEWPORT: Full-bleed black; seen from straight above, the grid draws itself out from the centre and NOLANN PETRI is traced on it in hairlines, segment by segment, like a plotter; a small non-text scroll cue. The chrome fades in after the trace.
 
-STORY: Top-down plan, the front passes and the letters rise into walls while the camera tilts down to street level, slaloms left and right through the gaps between the letters, runs down an avenue while towers grow ahead of it, climbs until the city is tiny on an endless grid, then follows the returning front home as it folds the city and the name flat.
+STORY: Top-down plan, the front passes and the letters rise into walls while the camera tilts down to street level, slaloms left and right through the gaps between the letters, runs down an avenue while towers grow ahead of it, and keeps going forward: an eraser front lays the city flat, the name is traced again standing ahead, and the four reels appear beneath it to choose where to go (revised 28/09/2026: friends found the old return-and-fade ending aimless and the reversal felt like backing up; Nolann rejected flying into a photo and asked for the choice of reels under the name).
 
 SIGNATURE: the front of light (a scanning plane, subtitle yellow where it touches lines, one blue anamorphic point at its source) is the only cause of change; the pointer lifts the grid like a finger under paper and lights the lines it passes. Motion grammar: springs with a little overshoot, hidden-line rendering so volumes have weight, no blur, a tight critically damped scroll response.
+
+## Code reel (Rushes), decided 29/09/2026
+
+Nolann's brief: visitors will not bother clicking clips on the edit timeline to see the projects; the work must show itself without effort. Chosen in the question round: a procession of rushes, ORVECT folded into it as the first chapter, and a selection of the strongest projects shown large with the rest smaller at the bottom. Extension inside the established world: no concept round, code-led.
+
+THESIS: The Code reel is a screening of rushes: every selected project arrives as its own monitor and plays its real recording the moment it reaches the middle of the screen; nothing needs a click to be seen. It refuses the hidden-behind-an-interface gallery (the old edit timeline) and the card grid.
+
+STORY: A title card, then chapter one, ORVECT (its mark, one line, its credits) with two rushes: the prototype and the landing. Chapter two, clients, hackathons and tools, with four rushes: RaceTrack Competition, SURVIVE.EXE, SES and EFT. Then "More rushes": six smaller monitors (investor deck, Col de l'Est, Galaxie philosophique, IELTS Studio, Grammar Atlas, Maths Bac), each a link to the live project that previews on hover. The Nebius × Tavily hackathon is told inside the ORVECT prototype rush (it shared the same recording).
+
+SIGNATURE: one rush is on air at a time: the one in the middle of the viewport plays, its monitor bar runs a subtitle-yellow timecode from the real video and its "Try it live" plate turns yellow; the rushes above and below sit on their paused frame, dimmed. On a wide screen "Try it live" swaps the recording for the live site inside the same monitor. Credits beside each monitor keep the fixed fields: title, role and year, context, what I built, goal, stack.
