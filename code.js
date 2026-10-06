@@ -64,7 +64,7 @@ rushes.forEach(r => {
     $('.rush-mon', r).removeAttribute('aria-hidden');
   }
   $('.btn.live', r).addEventListener('click', e => {
-    if (!canEmbed() || r._live) return;   // phones, previews and a second press open the site in a new tab
+    if (!canEmbed() || r._live || r.dataset.url.includes('github.com')) return;   // phones, previews, GitHub (no framing) and a second press open a new tab
     e.preventDefault();
     live(r);
   });
