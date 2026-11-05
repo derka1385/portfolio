@@ -549,7 +549,7 @@ function measure() {
   const r = exp.getBoundingClientRect();
   top0 = r.top + scrollY;
   span = Math.max(1, exp.offsetHeight - innerHeight);
-  dpr = Math.min(devicePixelRatio || 1, coarse ? 1.75 : 2);
+  dpr = Math.min(devicePixelRatio || 1, coarse ? 2 : 2);
   W = Math.max(2, Math.round(canvas.clientWidth * dpr)); Hh = Math.max(2, Math.round(canvas.clientHeight * dpr));
   canvas.width = W; canvas.height = Hh;
   // straight down, the whole name fits the width with room around it
@@ -663,6 +663,8 @@ addEventListener('scroll', () => {
   wake();
 }, { passive: true });
 addEventListener('resize', measure);
+// iOS settles the canvas size after the first layout (and again as the toolbars move): follow the real box
+new ResizeObserver(measure).observe(canvas);
 addEventListener('pointermove', aim, { passive: true });
 addEventListener('pointerdown', aim, { passive: true });
 document.addEventListener('pointerleave', () => { mouse.want = 0; wake(); });
