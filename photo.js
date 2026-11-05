@@ -14,8 +14,9 @@ items.forEach(el => { if (el.matches('.slate')) series = el; else el._series = s
 
 // Widths come from the images' width/height attributes, so the strip can be measured once, before anything loads.
 let travel = 0, top0 = 0, centres = [];
+let sheet = false;   // the contact sheet: every frame at once, no strip
 function measure() {
-  if (reduce) return;
+  if (reduce || sheet) return;
   track.style.transform = 'none';
   travel = Math.max(0, track.scrollWidth - innerWidth);
   reel.style.height = `${travel + innerHeight}px`;
@@ -57,12 +58,12 @@ function frame(now) {
   }
   if (Math.abs(t - x) > 0.1) raf = requestAnimationFrame(frame);
 }
-const wake = () => { if (!raf) { last = performance.now(); raf = requestAnimationFrame(frame); } };
+const wake = () => { if (!raf && !sheet) { last = performance.now(); raf = requestAnimationFrame(frame); } };
 
 // The series index jumps to its slate in the strip
 $$('.series a').forEach(a => a.addEventListener('click', e => {
   const slate = $(a.getAttribute('href'));
-  if (!slate || reduce) return;
+  if (!slate || reduce || sheet) return;
   e.preventDefault();
   const p = clamp((slate.offsetLeft - innerWidth * 0.12) / Math.max(1, travel));
   scrollTo({ top: top0 + p * travel, behavior: 'smooth' });
@@ -75,3 +76,23 @@ if (!reduce) {
   measure();
 } else frames.forEach(f => f.style.setProperty('--lit', 1));
 onLang(() => { near = -1; wake(); });
+
+// Film strip or contact sheet; the choice is remembered
+const views = $$('[data-view]');
+function setView(v) {
+  sheet = v === 'sheet';
+  document.documentElement.classList.toggle('sheet', sheet);
+  views.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.view === v)));
+  try { localStorage.setItem('np-photo-view', v); } catch {}
+  if (sheet) {
+    cancelAnimationFrame(raf); raf = 0;
+    reel.style.height = ''; track.style.transform = '';
+    items.forEach(el => { el.style.transform = ''; el.style.setProperty('--lit', 1); });
+  } else if (!reduce) measure();
+}
+views.forEach(b => b.addEventListener('click', () => {
+  const top = $('.card').getBoundingClientRect().bottom + scrollY;
+  setView(b.dataset.view);
+  if (scrollY > top) scrollTo(0, top);
+}));
+try { if (localStorage.getItem('np-photo-view') === 'sheet') setView('sheet'); } catch {}
