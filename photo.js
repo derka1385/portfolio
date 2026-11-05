@@ -91,8 +91,8 @@ function setView(v) {
   } else if (!reduce) measure();
 }
 views.forEach(b => b.addEventListener('click', () => {
-  const top = $('.card').getBoundingClientRect().bottom + scrollY;
   setView(b.dataset.view);
-  if (scrollY > top) scrollTo(0, top);
+  // the change happens below the fold on a phone: take the visitor to it
+  scrollTo({ top: $('.series').getBoundingClientRect().top + scrollY - 70, behavior: reduce ? 'auto' : 'smooth' });
 }));
 try { if (localStorage.getItem('np-photo-view') === 'sheet') setView('sheet'); } catch {}
