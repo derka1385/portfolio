@@ -469,6 +469,14 @@ html.js .p-home.ready.rolling .chrome:focus-within, html.js .p-home .chrome:focu
   .reels a { padding: 14px 10px; }
   body { padding-bottom: calc(52px + env(safe-area-inset-bottom)); }
   .exp-cue { bottom: calc(52px + 24px + env(safe-area-inset-bottom)); }
+  /* phones: the switch rides just above the reel bar, always in reach */
+  .view-switch {
+    position: fixed; left: 0; right: 0; z-index: 39; bottom: calc(52px + env(safe-area-inset-bottom)); margin: 0;
+    gap: 0; padding: 8px var(--gut); background: var(--black); border-top: 1px solid var(--line);
+  }
+  .view-switch .btn { flex: 1; justify-content: center; min-height: 36px; }
+  .view-switch .btn + .btn { margin-left: -1px; }
+  .p-photo { padding-bottom: calc(52px + 53px + env(safe-area-inset-bottom)); }
   .exp-menu { top: 58%; display: grid; grid-template-columns: 1fr 1fr; gap: 26px 20px; justify-items: center; padding-inline: var(--gut); }
   .exp-menu a { font-size: 21px; letter-spacing: .24em; margin-right: -.24em; }
   .rush-mon, .rush-copy, .chap > h2, .chap-body { grid-column: 1 / -1; }
