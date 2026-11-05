@@ -140,8 +140,17 @@ export function projector(items, { count = true } = {}) {
   const show = (k, dir = 0) => {
     i = (k + items.length) % items.length;
     const el = items[i], im = $('img', el), src = el.closest('[data-cap]') || el;
-    img.src = im.dataset.full || im.currentSrc || im.src;
+    // the small frame is already on screen: show it at once, swap in the full one when it has arrived
+    const full = im.dataset.full || im.currentSrc || im.src;
+    img.src = im.currentSrc || im.src;
     img.alt = im.alt;
+    if (full !== img.src) {
+      const want = i, pre = new Image();
+      pre.onload = () => { if (want === i) (pre.decode ? pre.decode() : Promise.resolve()).catch(() => {}).then(() => { if (want === i) img.src = full; }); };
+      pre.src = full;
+    }
+    // and fetch the neighbours ahead of a swipe
+    [i - 1, i + 1].forEach(k => { const m = $('img', items[(k + items.length) % items.length]); if (m?.dataset.full) new Image().src = m.dataset.full; });
     cap.textContent = (lang === 'fr' && src.dataset.capFr) || src.dataset.cap || im.alt;
     if (n) n.textContent = count ? `${String(i + 1).padStart(2, '0')} / ${String(items.length).padStart(2, '0')}` : '';
     if (dir) { dlg.style.setProperty('--dir', `${dir * 28}px`); dlg.classList.remove('flip'); void dlg.offsetWidth; dlg.classList.add('flip'); }
@@ -151,6 +160,15 @@ export function projector(items, { count = true } = {}) {
   $('#lb-next').addEventListener('click', () => show(i + 1, 1));
   $('#lb-close').addEventListener('click', () => dlg.close());
   dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+  // swipe between frames on touch screens
+  let sx = null, sy = 0;
+  dlg.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+  dlg.addEventListener('touchend', e => {
+    if (sx === null) return;
+    const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+    sx = null;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) show(i + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
+  }, { passive: true });
   dlg.addEventListener('keydown', e => {
     if (e.key === 'ArrowRight') show(i + 1, 1);
     if (e.key === 'ArrowLeft') show(i - 1, -1);

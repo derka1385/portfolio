@@ -207,7 +207,8 @@ html.af iframe, html.af input[type="range"] { cursor: auto !important; }
 .lb-arrow.prev { left: 16px; } .lb-arrow.next { right: 16px; }
 .proj-lb.flip img { animation: lb-flip .45s var(--ease); }
 @keyframes lb-in { from { opacity: 0; } }
-@keyframes lb-flip { from { opacity: 0; transform: translateX(var(--dir, 24px)); filter: blur(6px); } }
+@keyframes lb-flip { from { opacity: 0; transform: translateX(var(--dir, 24px)); } }
+.proj-lb img { touch-action: pan-y; }
 
 /* =================================================================
    HOME — Lignes: one grid, one front of light, no words past the name
@@ -319,6 +320,12 @@ html.js .p-home.ready.rolling .chrome:focus-within, html.js .p-home .chrome:focu
 
 .reel { position: relative; }
 .reel-pin { position: sticky; top: 0; height: 100svh; display: flex; align-items: center; overflow: clip; perspective: 1400px; }
+/* partners: the people I shot for, after the roll */
+.partners { padding-top: clamp(80px, 14vh, 140px); }
+.partners .chap-h { padding-top: 30px; border-top: 1px solid var(--line); margin-bottom: 40px; }
+.partner-list { display: flex; flex-wrap: wrap; align-items: center; gap: 28px clamp(28px, 4vw, 64px); }
+.partner-list li { font-size: clamp(15px, 1.4vw, 20px); font-weight: 400; font-stretch: 125%; text-transform: uppercase; letter-spacing: .16em; color: var(--dim); }
+.partner-list img { height: 64px; width: auto; }
 .view-switch { display: flex; gap: 8px; margin-top: 30px; }
 .view-switch .btn[aria-pressed="true"] { background: var(--white); color: #000; border-color: var(--white); }
 /* contact sheet: the whole roll at once, chapter by chapter, nothing to scroll sideways */
